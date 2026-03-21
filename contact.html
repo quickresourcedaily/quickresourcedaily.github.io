@@ -10,61 +10,86 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Inter', sans-serif; line-height: 1.8; background-color: var(--light); color: var(--text); -webkit-font-smoothing: antialiased; }
         
-        nav { background: var(--white); padding: 1rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        nav { background: var(--white); padding: 1rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); text-decoration: none; }
         
-        .container { max-width: 600px; margin: 80px auto; background: var(--white); padding: 50px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        .container { max-width: 650px; margin: 80px auto; background: var(--white); padding: 60px 40px; border-radius: 24px; border: 1px solid var(--border); box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05); text-align: center; }
         
-        h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 15px; letter-spacing: -1px; }
-        p { color: #64748b; margin-bottom: 35px; font-size: 1.1rem; }
+        h1 { font-size: 3rem; color: var(--dark); margin-bottom: 15px; letter-spacing: -2px; }
+        .subtitle { color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: block; margin-bottom: 20px; }
+        p { color: #64748b; margin-bottom: 40px; font-size: 1.1rem; max-width: 500px; margin-left: auto; margin-right: auto; }
 
-        /* THE EMAIL BUTTON */
+        /* THE ACTION BUTTON */
         .contact-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--dark);
+            background: var(--primary);
             color: var(--white);
             text-decoration: none;
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-weight: 700;
+            padding: 20px 45px;
+            border-radius: 16px;
+            font-weight: 800;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
         }
 
         .contact-btn:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+            filter: brightness(1.1);
         }
 
-        .contact-btn span { margin-right: 10px; font-size: 1.3rem; }
+        .contact-btn span { margin-right: 12px; font-size: 1.4rem; }
 
-        .info-text { margin-top: 40px; font-size: 0.9rem; color: #94a3b8; border-top: 1px solid var(--border); padding-top: 30px; }
+        .info-grid { 
+            margin-top: 50px; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            border-top: 1px solid var(--border); 
+            padding-top: 40px; 
+        }
         
+        .info-item { text-align: left; background: var(--light); padding: 20px; border-radius: 12px; }
+        .info-item h4 { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; margin-bottom: 5px; }
+        .info-item p { margin: 0; color: var(--dark); font-weight: 600; font-size: 0.95rem; text-align: left; }
+
         footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .container { margin: 20px; padding: 40px 20px; }
+            h1 { font-size: 2.2rem; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="index.html" class="logo">QuickResourceDaily</a>
-    <a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:600;">← Back</a>
+    <a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:600;">← Back Home</a>
 </nav>
 
 <main class="container">
+    <span class="subtitle">Direct Communication</span>
     <h1>Get in Touch</h1>
     <p>Have a technical question or a business inquiry? Our inbox is always open for the global creator community.</p>
 
     <a href="mailto:ianmakiika@gmail.com?subject=Inquiry%20from%20QuickResourceDaily" class="contact-btn">
-        <span>✉️</span> Send an Email
+        <span>✉️</span> Send a Message
     </a>
 
-    <div class="info-text">
-        <p>Typically responds within 24-48 business hours.</p>
-        <p><strong>QuickResourceDaily</strong> | Kampala, Uganda</p>
+    <div class="info-grid">
+        <div class="info-item">
+            <h4>Response Time</h4>
+            <p>24-48 Business Hours</p>
+        </div>
+        <div class="info-item">
+            <h4>Location</h4>
+            <p>Kampala, Uganda</p>
+        </div>
     </div>
 </main>
 
