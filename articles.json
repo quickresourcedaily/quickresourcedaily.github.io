@@ -1,16 +1,26 @@
 [
   {
-    "title": "How to Make $1,000 a Month in Passive Income Online",
+    "title": "How to Make $1,000 a Month in Passive Income Online (2026 Guide)",
     "url": "blog/passive-income-1000-month.html",
     "category": "Side Hustles",
-    "description": "A deep dive into 2026 AI and Monetag strategies.",
+    "description": "A deep dive into the realistic math and AI strategies to build a $1k/month digital engine.",
+    "image": "images/money-blueprint.jpg",
     "date": "2026-03-21"
   },
   {
-    "title": "Fix: App Not Installed Error on Android",
-    "url": "blog/app-not-installed-fix.html",
-    "category": "Tech Guides",
-    "description": "Quick solutions for package installer errors.",
+    "title": "10 Free AI Writing Tools That Bypass Detection in 2026",
+    "url": "blog/ai-writing-tools-2026.html",
+    "category": "AI Tools",
+    "description": "Master AI content creation without getting flagged by filters.",
+    "image": "image/hannah-olinger-8eSrC43qdro-unsplash.jpg",
     "date": "2026-03-15"
+  },
+  {
+    "title": "How to Fix “App Not Installed” Error on Android (Full Guide)",
+    "url": "blog/app-not-installed-fix.html",
+    "category": "Android Fix",
+    "description": "A complete troubleshooting guide for package installer errors.",
+    "image": "image/android-fix.jpg",
+    "date": "2026-03-10"
   }
 ]
