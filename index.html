@@ -106,24 +106,52 @@
 
         .card h2 { font-size: 1.25rem; color: var(--dark); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
 
-        /* ARTICLE LIST STYLING */
+        /* ARTICLE LIST WITH IMAGES */
         #articleList li {
             list-style: none;
-            padding: 15px 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border);
         }
 
         #articleList li:last-child { border-bottom: none; }
 
-        #articleList a {
+        .article-link {
+            display: flex;
+            gap: 20px;
+            text-decoration: none;
+            align-items: center;
+        }
+
+        .thumbnail-box {
+            flex: 0 0 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--light);
+            border: 1px solid var(--border);
+        }
+
+        .thumbnail-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-text {
+            flex: 1;
+        }
+
+        .article-text a {
             color: var(--dark);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
             transition: color 0.2s;
         }
 
-        #articleList a:hover { color: var(--primary); }
+        .article-link:hover .article-text a { color: var(--primary); }
 
         .category-tag {
             font-size: 0.7rem;
@@ -141,6 +169,8 @@
             .main-content, .sidebar { grid-column: span 12; }
             .hero h1 { font-size: 2.2rem; }
             .container { margin-top: 20px; }
+            .article-link { gap: 15px; }
+            .thumbnail-box { flex: 0 0 80px; height: 80px; }
         }
     </style>
 </head>
@@ -171,12 +201,26 @@
             <h2>📝 Latest Expert Resources</h2>
             <ul id="articleList">
                 <li>
-                    <span class="category-tag">AI Tools</span>
-                    <a href="blog/ai-writing-tools-2026.html">10 Free AI Writing Tools That Bypass Detection in 2026</a>
+                    <div class="article-link">
+                        <div class="thumbnail-box">
+                            <img src="image/hannah-olinger-8eSrC43qdro-unsplash.jpg" alt="AI Writing Tools">
+                        </div>
+                        <div class="article-text">
+                            <span class="category-tag">AI Tools</span>
+                            <a href="blog/ai-writing-tools-2026.html">10 Free AI Writing Tools That Bypass Detection in 2026</a>
+                        </div>
+                    </div>
                 </li>
                 <li>
-                    <span class="category-tag">Android Fix</span>
-                    <a href="blog/app-not-installed-fix.html">How to Fix “App Not Installed” Error on Android (Full Guide)</a>
+                    <div class="article-link">
+                        <div class="thumbnail-box">
+                            <img src="image/android-fix.jpg" alt="Android Fix">
+                        </div>
+                        <div class="article-text">
+                            <span class="category-tag">Android Fix</span>
+                            <a href="blog/app-not-installed-fix.html">How to Fix “App Not Installed” Error on Android (Full Guide)</a>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </section>
@@ -186,8 +230,8 @@
         <section class="card">
             <h2>🛠 Tech Guides</h2>
             <ul style="list-style: none; font-size: 0.9rem;">
-                <li style="padding: 8px 0;">• Fix Android System Errors</li>
-                <li style="padding: 8px 0;">• App Performance Optimization</li>
+                <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• Fix Android System Errors</li>
+                <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• App Performance Optimization</li>
                 <li style="padding: 8px 0;">• Device Troubleshooting</li>
             </ul>
         </section>
@@ -195,8 +239,8 @@
         <section class="card">
             <h2>💰 Side Hustles</h2>
             <ul style="list-style: none; font-size: 0.9rem;">
-                <li style="padding: 8px 0;">• Monetag Strategy 2026</li>
-                <li style="padding: 8px 0;">• Blogging for Beginners</li>
+                <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• Monetag Strategy 2026</li>
+                <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• Blogging for Beginners</li>
                 <li style="padding: 8px 0;">• AI Content Automation</li>
             </ul>
         </section>
@@ -204,10 +248,10 @@
 </main>
 
 <footer>
-    <p>
-    <a href="privacy-policy.html" style="color: #94a3b8; text-decoration: none; margin: 0 10px;">Privacy Policy</a> | 
-    <a href="index.html" style="color: #94a3b8; text-decoration: none; margin: 0 10px;">Terms of Service</a>
-</p>
+    <p style="margin-bottom: 15px;">
+        <a href="privacy-policy.html" style="color: #94a3b8; text-decoration: none; margin: 0 10px;">Privacy Policy</a> | 
+        <a href="index.html" style="color: #94a3b8; text-decoration: none; margin: 0 10px;">Terms of Service</a>
+    </p>
     <p>&copy; 2026 QuickResourceDaily. Built for Creators Worldwide.</p>
 </footer>
 
