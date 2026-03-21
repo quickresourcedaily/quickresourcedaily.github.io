@@ -9,186 +9,51 @@
     <title>QuickResourceDaily | Expert Tech Guides, Side Hustles & 2026 SEO</title>
     <meta name="description" content="Master the digital world with QuickResourceDaily. Expert-led Android troubleshooting, profitable side hustle blueprints, and 2026 AI-driven SEO strategies for creators.">
     <meta name="keywords" content="Tech Guides, Android Fix, Side Hustles 2026, Monetag Strategy, AI Content Automation, SEO Tips, Digital Income">
-    <meta name="author" content="QuickResourceDaily">
-
-    <meta property="og:title" content="QuickResourceDaily | Tech & Digital Income Hub">
-    <meta property="og:description" content="Proven blueprints for scaling digital assets with AI, tech troubleshooting, and smart ad strategies.">
-    <meta property="og:url" content="https://yourname.github.io/">
-    <meta property="og:type" content="website">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary: #2563eb; 
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text: #475569;
-            --white: #ffffff;
-            --border: #e2e8f0;
-        }
-
+        :root { --primary: #2563eb; --dark: #0f172a; --light: #f8fafc; --text: #475569; --white: #ffffff; --border: #e2e8f0; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; background-color: var(--light); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            background-color: var(--light);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        /* NAVIGATION & SIDEBAR */
-        nav {
-            background: var(--white);
-            padding: 1rem 1.5rem;
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            z-index: 1000;
-        }
-
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin-right: 15px;
-            color: var(--dark);
-        }
-
+        nav { background: var(--white); padding: 1rem 1.5rem; display: flex; align-items: center; position: sticky; top: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); z-index: 1000; }
+        .menu-toggle { background: none; border: none; font-size: 1.5rem; cursor: pointer; margin-right: 15px; color: var(--dark); }
         .logo { font-weight: 800; font-size: 1.25rem; color: var(--dark); text-decoration: none; flex-grow: 1; }
 
-        /* SLIDING SIDEBAR */
-        .sidebar-overlay {
-            position: fixed;
-            top: 0; left: -280px;
-            width: 280px; height: 100%;
-            background: var(--white);
-            z-index: 2000;
-            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
-            transition: 0.3s ease;
-            padding: 40px 20px;
-        }
-
+        .sidebar-overlay { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: var(--white); z-index: 2000; box-shadow: 2px 0 15px rgba(0,0,0,0.1); transition: 0.3s ease; padding: 40px 20px; }
         .sidebar-overlay.active { left: 0; }
-
-        .sidebar-overlay a {
-            display: block;
-            padding: 15px 10px;
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid var(--border);
-        }
-
+        .sidebar-overlay a { display: block; padding: 15px 10px; color: var(--dark); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--border); }
         .close-sidebar { text-align: right; font-size: 1.8rem; cursor: pointer; margin-bottom: 20px; }
-
-        .backdrop {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); visibility: hidden; opacity: 0; transition: 0.3s; z-index: 1500;
-        }
+        .backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); visibility: hidden; opacity: 0; transition: 0.3s; z-index: 1500; }
         .backdrop.active { visibility: visible; opacity: 1; }
 
-        /* HERO & SEARCH */
-        .hero {
-            background: var(--dark);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
+        .hero { background: var(--dark); color: white; padding: 60px 20px; text-align: center; }
         .hero h1 { font-size: 2.8rem; letter-spacing: -1.5px; margin-bottom: 15px; font-weight: 800; }
         .hero p { opacity: 0.8; font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; }
 
         .search-container { max-width: 500px; margin: 0 auto; position: relative; }
-        #searchInput {
-            width: 100%; padding: 16px 24px; border-radius: 50px; border: none; font-size: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
-        }
+        #searchInput { width: 100%; padding: 16px 24px; border-radius: 50px; border: none; font-size: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); }
 
-        /* CATEGORY BAR */
-        .category-bar {
-            background: var(--white);
-            padding: 15px 10px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .cat-btn {
-            padding: 10px 20px;
-            background: var(--light);
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 0.85rem;
-            font-weight: 700;
-            transition: 0.2s;
-        }
-
+        .category-bar { background: var(--white); padding: 15px 10px; display: flex; justify-content: center; gap: 10px; border-bottom: 1px solid var(--border); overflow-x: auto; white-space: nowrap; }
+        .cat-btn { padding: 10px 20px; background: var(--light); border: 1px solid var(--border); border-radius: 25px; text-decoration: none; color: var(--dark); font-size: 0.85rem; font-weight: 700; transition: 0.2s; }
         .cat-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
-        /* GRID CONTENT */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto 60px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 25px;
-        }
-
+        .container { max-width: 1200px; margin: 30px auto 60px; padding: 0 20px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 25px; }
         .main-content { grid-column: span 8; }
         .sidebar { grid-column: span 4; }
 
-        .card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
+        .card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 25px; }
 
-        /* ARTICLE LIST */
-        #articleList li { list-style: none; padding: 20px 0; border-bottom: 1px solid var(--border); }
-        #articleList li:last-child { border-bottom: none; }
+        /* AUTOMATED LIST STYLES */
+        .article-item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); text-decoration: none; align-items: center; }
+        .article-item:last-child { border-bottom: none; }
+        .thumb { flex: 0 0 100px; height: 100px; border-radius: 8px; background: #eee; overflow: hidden; }
+        .thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .info h2 { color: var(--dark); font-size: 1.15rem; margin-bottom: 5px; }
+        .tag { font-size: 0.7rem; font-weight: 800; color: var(--primary); text-transform: uppercase; display: block; }
 
-        .article-link { display: flex; gap: 20px; text-decoration: none; align-items: center; }
-
-        .thumbnail-box {
-            flex: 0 0 100px; height: 100px;
-            border-radius: 8px; overflow: hidden;
-            background: var(--light); border: 1px solid var(--border);
-        }
-
-        .thumbnail-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        .article-text a {
-            color: var(--dark); text-decoration: none; font-weight: 700;
-            font-size: 1.15rem; display: block; margin-bottom: 5px;
-        }
-
-        .category-tag {
-            font-size: 0.7rem; text-transform: uppercase;
-            font-weight: 800; color: var(--primary); display: block; margin-bottom: 5px;
-        }
-
-        /* MOBILE FIXES */
-        @media (max-width: 900px) {
-            .main-content, .sidebar { grid-column: span 12; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero { padding: 40px 20px; }
-            .category-bar { justify-content: flex-start; padding-left: 15px; }
-            .thumbnail-box { flex: 0 0 85px; height: 85px; }
-        }
+        @media (max-width: 900px) { .main-content, .sidebar { grid-column: span 12; } .hero h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
@@ -226,44 +91,9 @@
     <div class="main-content">
         <section class="card">
             <h2 style="margin-bottom: 20px;">📝 Latest Expert Resources</h2>
-            <ul id="articleList">
-                <li
-                    <div class="card">
-    <div class="article-link">
-        <div class="thumbnail-box">
-            <img src="images/money-blueprint.jpg" alt="Passive Income 2026">
-        </div>
-        <div class="article-text">
-            <span class="category-tag">Side Hustles</span>
-            <a href="blog/passive-income-1000-month.html">
-                <h2>How to Make $1,000 a Month in Passive Income Online (2026 Guide)</h2>
-            </a>
-            <p>A deep dive into the realistic math and AI strategies to build a $1k/month digital engine.</p>
-        </div>
-    </div>
-</div>
-                    <div class="article-link">
-                        <div class="thumbnail-box">
-                            <img src="image/hannah-olinger-8eSrC43qdro-unsplash.jpg" alt="AI Tools">
-                        </div>
-                        <div class="article-text">
-                            <span class="category-tag">AI Tools</span>
-                            <a href="blog/ai-writing-tools-2026.html">10 Free AI Writing Tools That Bypass Detection in 2026</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="article-link">
-                        <div class="thumbnail-box">
-                            <img src="image/android-fix.jpg" alt="Android Fix">
-                        </div>
-                        <div class="article-text">
-                            <span class="category-tag">Android Fix</span>
-                            <a href="blog/app-not-installed-fix.html">How to Fix “App Not Installed” Error on Android (Full Guide)</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+            <div id="article-list-container">
+                <p>Loading the latest guides...</p>
+            </div>
         </section>
     </div>
 
@@ -287,15 +117,48 @@
         document.getElementById('backdrop').classList.toggle('active');
     }
 
-    function searchArticles() {
-        let input = document.getElementById("searchInput").value.toLowerCase();
-        let list = document.getElementById("articleList");
-        let items = list.getElementsByTagName("li");
-        for (let i = 0; i < items.length; i++) {
-            let text = items[i].textContent.toLowerCase();
-            items[i].style.display = text.includes(input) ? "" : "none";
+    // THE ROBOT: Fetches data from articles.json and builds the page
+    async function loadArticles() {
+        try {
+            const response = await fetch('articles.json');
+            const articles = await response.json();
+            const container = document.getElementById('article-list-container');
+            
+            // Clear loading message
+            container.innerHTML = '';
+
+            // Build the HTML for each article
+            articles.forEach(post => {
+                container.innerHTML += `
+                    <a href="${post.url}" class="article-item">
+                        <div class="thumb">
+                            <img src="${post.image || 'image/default.jpg'}" alt="${post.title}">
+                        </div>
+                        <div class="info">
+                            <span class="tag">${post.category}</span>
+                            <h2>${post.title}</h2>
+                            <p style="font-size:0.9rem; color:#64748b;">${post.description}</p>
+                        </div>
+                    </a>
+                `;
+            });
+        } catch (e) {
+            document.getElementById('article-list-container').innerHTML = "<p>Failed to load articles. Check articles.json</p>";
         }
     }
+
+    // Search function for the automated list
+    function searchArticles() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let items = document.getElementsByClassName("article-item");
+        for (let i = 0; i < items.length; i++) {
+            let text = items[i].textContent.toLowerCase();
+            items[i].style.display = text.includes(input) ? "flex" : "none";
+        }
+    }
+
+    // Run the robot on load
+    window.onload = loadArticles;
 </script>
 </body>
 </html>
