@@ -1,25 +1,159 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Hustles | QuickResourceDaily</title>
+    <title>Side Hustles & Passive Income | QuickResourceDaily</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981; /* Success Green for Money/Hustles */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #475569;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            background-color: var(--light);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER NAV */
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); text-decoration: none; }
+        .back-link { font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600; }
+
+        /* HERO AREA */
+        .page-header {
+            background: linear-gradient(to bottom, #ecfdf5, var(--white));
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header h1 { font-size: 2.5rem; color: var(--dark); letter-spacing: -1px; margin-bottom: 10px; }
+        .page-header p { max-width: 600px; margin: 0 auto; color: #64748b; }
+
+        /* ARTICLE GRID */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hustle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .hustle-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hustle-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--primary);
+        }
+
+        .hustle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            background: #f9fafb;
+        }
+
+        .hustle-card .tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .hustle-card h2 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .hustle-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
-<body style="font-family: Arial; max-width: 900px; margin: auto; padding: 20px;">
+<body>
 
-    <h1>💰 Side Hustles</h1>
+<nav>
+    <a href="index.html" class="logo">QuickResourceDaily</a>
+    <a href="index.html" class="back-link">← Back to Home</a>
+</nav>
 
-    <ul>
-        <li>
-            <a href="blog/ai-writing-tools-2026.html">
-                10 Free AI Writing Tools That Bypass AI Detection in 2026
-            </a>
-        </li>
-    </ul>
+<header class="page-header">
+    <h1>💰 Profitable Side Hustles</h1>
+    <p>Scaling digital income streams with automation, AI tools, and smart ad network strategies.</p>
+</header>
 
-    <br>
-    <a href="index.html">← Back to Home</a>
+<main class="container">
+    <div class="hustle-grid">
+        
+        <a href="blog/ai-writing-tools-2026.html" class="hustle-card">
+            <span class="tag">Passive Income</span>
+            <h2>10 Free AI Writing Tools: Scaling Content Revenue</h2>
+            <p>How to use AI to build a high-traffic blog that earns through Monetag and AdSense.</p>
+        </a>
+
+        <a href="blog/how-to-start-faceless-youtube-channel.html" class="hustle-card">
+            <span class="tag">Automation</span>
+            <h2>Faceless YouTube Mastery: 2026 Profit Guide</h2>
+            <p>Turn blog articles into video assets without showing your face or using a camera.</p>
+        </a>
+
+        <div class="hustle-card" style="opacity: 0.6; border-style: dashed; background: transparent;">
+            <span class="tag">Upcoming</span>
+            <h2>Micro-SaaS & AI Tool Development for Beginners</h2>
+            <p>Building small, profitable tools on Hugging Face for global users.</p>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 QuickResourceDaily. Your Guide to Digital Freedom.</p>
+</footer>
 
 </body>
 </html>
