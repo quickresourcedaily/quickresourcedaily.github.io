@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SEO Tips & Search Growth | QuickResourceDaily</title>
+    
+    <title>Advanced SEO Tips & Search Growth Strategies 2026 | QuickResourceDaily</title>
+    <meta name="description" content="Master the art of search engine optimization. Discover 2026 SEO tips for AI-driven search, high-authority backlinking, and content strategies that rank #1.">
+    <meta name="keywords" content="SEO Tips 2026, Search Engine Optimization, Google Ranking Secrets, AI SEO, Website Growth, High Authority Content">
+    
+    <meta property="og:title" content="Advanced SEO Tips & Growth Blueprints 2026">
+    <meta property="og:description" content="Learn how to outsmart the algorithm. Proven SEO strategies for modern creators and bloggers.">
+    <meta property="og:type" content="article">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary: #2563eb; 
+            --primary: #f59e0b; /* Amber/Gold for SEO/Authority */
             --dark: #0f172a;
             --light: #f8fafc;
             --text: #475569;
@@ -25,7 +34,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* HEADER NAV */
         nav {
             background: var(--white);
             padding: 1rem 2rem;
@@ -33,30 +41,31 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); text-decoration: none; }
-        .back-link { font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600; }
+        .back-link { font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 5px; }
 
-        /* HERO AREA */
         .page-header {
-            background: var(--white);
+            background: linear-gradient(to bottom, #fffbeb, var(--white));
             padding: 60px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border);
         }
 
         .page-header h1 { font-size: 2.5rem; color: var(--dark); letter-spacing: -1px; margin-bottom: 10px; }
-        .page-header p { max-width: 600px; margin: 0 auto; color: #64748b; }
+        .page-header p { max-width: 600px; margin: 0 auto; color: #64748b; font-size: 1.1rem; }
 
-        /* ARTICLE GRID */
         .container {
             max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        .article-grid {
+        .seo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
@@ -70,12 +79,13 @@
             transition: all 0.2s ease;
             text-decoration: none;
             display: block;
+            border-top: 4px solid var(--primary);
         }
 
         .seo-card:hover {
             transform: translateY(-3px);
-            border-color: var(--primary);
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            background: #fffcf5;
         }
 
         .seo-card .tag {
@@ -99,7 +109,7 @@
             color: #64748b;
         }
 
-        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.85rem; }
+        footer { text-align: center; padding: 60px 20px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 50px; }
 
         @media (max-width: 600px) {
             .page-header h1 { font-size: 2rem; }
@@ -110,39 +120,45 @@
 
 <nav>
     <a href="index.html" class="logo">QuickResourceDaily</a>
-    <a href="index.html" class="back-link">← Back to Home</a>
+    <a href="index.html" class="back-link">🏠 Home</a>
 </nav>
 
 <header class="page-header">
-    <h1>🔍 SEO Tips & Growth</h1>
-    <p>Data-driven strategies to rank higher on Google and dominate the 2026 search landscape.</p>
+    <h1>🔍 Advanced SEO Tips</h1>
+    <p>Mastering the 2026 algorithms to drive high-intent organic traffic to your digital assets.</p>
 </header>
 
 <main class="container">
-    <div class="article-grid">
+    <div class="seo-grid">
         
-        <a href="blog/ai-writing-tools-2026.html" class="seo-card">
-            <span class="tag">AI & Content</span>
-            <h2>AI Content & SEO Writing Strategies: Bypassing Detection</h2>
-            <p>Master the balance between AI speed and human-quality SEO rankings in 2026.</p>
+        <a href="blog/ranking-factors-2026.html" class="seo-card">
+            <span class="tag">Algorithm Update</span>
+            <h2>Top 5 Ranking Factors for 2026</h2>
+            <p>What Google actually cares about this year: Experience, Expertise, Authoritativeness, and Trust (E-E-A-T).</p>
         </a>
 
-        <div class="seo-card" style="opacity: 0.6; cursor: default; border-style: dashed;">
+        <a href="blog/keyword-research-for-beginners.html" class="seo-card">
+            <span class="tag">Strategy</span>
+            <h2>Zero-Volume Keyword Strategy</h2>
+            <p>How to find "hidden" keywords that bring in high-value visitors before they become popular.</p>
+        </a>
+
+        <div class="seo-card" style="opacity: 0.6; border-style: dashed; background: transparent;">
             <span class="tag">Coming Soon</span>
-            <h2>How to Rank for High-CPC Keywords in the US Market</h2>
-            <p>Stay tuned for our deep dive into high-revenue niche targeting.</p>
+            <h2>The Death of Backlinks?</h2>
+            <p>How AI-driven search is changing the way we think about authority and link building.</p>
         </div>
 
     </div>
 </main>
 
-<footer style="text-align: center; padding: 40px;">
+<footer>
     <p>
-        <a href="about.html">About Us</a> | 
-        <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="terms.html">Terms of Service</a>
+        <a href="index.html" style="text-decoration:none; color:inherit;">Home</a> | 
+        <a href="about.html" style="text-decoration:none; color:inherit;">About Us</a> | 
+        <a href="privacy-policy.html" style="text-decoration:none; color:inherit;">Privacy Policy</a>
     </p>
-    <p>&copy; 2026 QuickResourceDaily</p>
+    <p style="margin-top: 10px;">&copy; 2026 QuickResourceDaily. Empowering Digital Creators.</p>
 </footer>
 
 </body>
