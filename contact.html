@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | QuickResourceDaily</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2563eb; --dark: #0f172a; --light: #f8fafc; --text: #334155; --white: #ffffff; --border: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.8; background-color: var(--light); color: var(--text); -webkit-font-smoothing: antialiased; }
+        
+        nav { background: var(--white); padding: 1rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); text-decoration: none; }
+        
+        .container { max-width: 600px; margin: 80px auto; background: var(--white); padding: 50px; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        
+        h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 15px; letter-spacing: -1px; }
+        p { color: #64748b; margin-bottom: 35px; font-size: 1.1rem; }
+
+        /* THE EMAIL BUTTON */
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark);
+            color: var(--white);
+            text-decoration: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+        }
+
+        .contact-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .contact-btn span { margin-right: 10px; font-size: 1.3rem; }
+
+        .info-text { margin-top: 40px; font-size: 0.9rem; color: #94a3b8; border-top: 1px solid var(--border); padding-top: 30px; }
+        
+        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">QuickResourceDaily</a>
+    <a href="index.html" style="text-decoration:none; color:var(--primary); font-weight:600;">← Back</a>
+</nav>
+
+<main class="container">
+    <h1>Get in Touch</h1>
+    <p>Have a technical question or a business inquiry? Our inbox is always open for the global creator community.</p>
+
+    <a href="mailto:ianmakiika@gmail.com?subject=Inquiry%20from%20QuickResourceDaily" class="contact-btn">
+        <span>✉️</span> Send an Email
+    </a>
+
+    <div class="info-text">
+        <p>Typically responds within 24-48 business hours.</p>
+        <p><strong>QuickResourceDaily</strong> | Kampala, Uganda</p>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 QuickResourceDaily. Professional Tech Insights.</p>
+</footer>
+
+</body>
+</html>
