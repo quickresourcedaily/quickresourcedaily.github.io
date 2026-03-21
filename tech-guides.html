@@ -1,25 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Guides | QuickResourceDaily</title>
+    <title>Expert Tech Guides & Troubleshooting | QuickResourceDaily</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1; /* Indigo for Tech/Troubleshooting */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #475569;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            background-color: var(--light);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER NAV */
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); text-decoration: none; }
+        .back-link { font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600; }
+
+        /* HERO AREA */
+        .page-header {
+            background: linear-gradient(to bottom, #f5f3ff, var(--white));
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header h1 { font-size: 2.5rem; color: var(--dark); letter-spacing: -1px; margin-bottom: 10px; }
+        .page-header p { max-width: 600px; margin: 0 auto; color: #64748b; }
+
+        /* ARTICLE GRID */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: block;
+            border-bottom: 4px solid transparent;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-3px);
+            border-bottom-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .tech-card .tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tech-card h2 {
+            font-size: 1.15rem;
+            color: var(--dark);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .tech-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
-<body style="font-family: Arial; max-width: 900px; margin: auto; padding: 20px;">
+<body>
 
+<nav>
+    <a href="index.html" class="logo">QuickResourceDaily</a>
+    <a href="index.html" class="back-link">← Back to Home</a>
+</nav>
+
+<header class="page-header">
     <h1>🛠 Tech Guides</h1>
+    <p>Step-by-step solutions for Android errors, device optimization, and software troubleshooting.</p>
+</header>
 
-    <ul>
-        <li>
-            <a href="blog/app-not-installed-fix.html">
-                How to Fix “App Not Installed” Error on Android
-            </a>
-        </li>
-    </ul>
+<main class="container">
+    <div class="tech-grid">
+        
+        <a href="blog/app-not-installed-fix.html" class="tech-card">
+            <span class="tag">Android System</span>
+            <h2>Fix “App Not Installed” Error on Android (2026 Guide)</h2>
+            <p>The ultimate 5-minute fix for package installer errors and APK installation issues.</p>
+        </a>
 
-    <br>
-    <a href="index.html">← Back to Home</a>
+        <div class="tech-card" style="opacity: 0.6; cursor: default; border-style: dashed;">
+            <span class="tag">Coming Soon</span>
+            <h2>Laptop Performance Optimization: Ultimate Windows 11 Fix</h2>
+            <p>Clear system bloat and increase your machine's speed without extra hardware.</p>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 QuickResourceDaily. Expert Troubleshooting for Everyone.</p>
+</footer>
 
 </body>
 </html>
