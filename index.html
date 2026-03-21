@@ -3,122 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>QuickResourceDaily | Expert Tech Guides, Side Hustles & SEO Strategies</title>
+    <meta name="title" content="QuickResourceDaily | Tech Guides, Side Hustles & SEO Tips">
+    <meta name="description" content="Master the digital world with QuickResourceDaily. Discover expert tech troubleshooting, profitable side hustles, SEO growth tips, and curated free AI tools.">
+    <meta name="keywords" content="Tech Guides, Make Money Online, SEO Tips, Side Hustles, AI Tools, Monetag, Blogging Tips">
+    <meta name="author" content="QuickResourceDaily">
 
-    <title>QuickResourceDaily | Tech Guides, Side Hustles & SEO Tips</title>
-    <meta name="description" content="QuickResourceDaily provides tech how-to guides, online side hustle ideas, SEO tips, and free tools to help you grow and solve problems online.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quickresourcedaily.github.io/">
+    <meta property="og:title" content="QuickResourceDaily | Tech Guides & Side Hustles">
+    <meta property="og:description" content="Expert guides to solve tech problems and grow your online income.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f4f4;
+        :root {
+            --primary: #2563eb; /* Modern Blue */
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
         }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--text);
+        }
+
+        /* Header & Navigation */
         header {
-            background: #111;
-            color: #fff;
-            padding: 20px;
+            background: var(--dark);
+            color: var(--white);
+            padding: 60px 20px;
             text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
         }
 
         nav {
-            background: #222;
-            padding: 10px;
+            background: var(--white);
+            padding: 15px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
         }
 
         nav a {
-            color: #fff;
-            margin: 10px;
+            color: var(--dark);
+            margin: 0 15px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
         .container {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .welcome-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
         }
 
         .card {
-            background: #fff;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 8px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid transparent;
         }
 
+        .card:hover {
+            transform: translateY(-5px);
+            border-top: 4px solid var(--primary);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
         footer {
-            background: #111;
-            color: #fff;
+            background: var(--dark);
+            color: var(--white);
             text-align: center;
-            padding: 15px;
-            margin-top: 20px;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            nav a { margin: 0 8px; font-size: 0.9rem; }
         }
     </style>
 </head>
-
 <body>
 
 <header>
     <h1>QuickResourceDaily</h1>
-    <p>Tech Guides • Side Hustles • SEO Tips • Free Tools</p>
+    <p>Empowering your digital journey with actionable insights.</p>
 </header>
 
 <nav>
     <a href="#">Home</a>
-    <a href="#tech">Tech Guides</a>
-    <a href="#hustles">Side Hustles</a>
-    <a href="#seo">SEO Tips</a>
+    <a href="#tech">Tech</a>
+    <a href="#hustles">Hustles</a>
+    <a href="#seo">SEO</a>
     <a href="#tools">Tools</a>
 </nav>
 
-<div class="container">
+<main class="container">
 
-    <div class="card">
-        <h2>Welcome 👋</h2>
-        <p>Your daily hub for solving tech problems, learning online skills, and discovering ways to make money online.</p>
-    </div>
+    <section class="welcome-card">
+        <h2>Welcome to Your Digital Resource Hub 👋</h2>
+        <p>Expertly curated tech guides, proven side hustles, and SEO strategies to help you dominate the online space.</p>
+    </section>
 
-    <div id="tech" class="card">
+    <article id="tech" class="card">
         <h2>🛠 Tech Guides</h2>
         <ul>
-            <li>How to fix common Android errors</li>
-            <li>App installation troubleshooting</li>
-            <li>Device optimization tips</li>
+            <li>Fix Common Android System Errors</li>
+            <li>Advanced App Troubleshooting</li>
+            <li>PC & Mobile Optimization Secrets</li>
         </ul>
-    </div>
+    </article>
 
-    <div id="hustles" class="card">
+    <article id="hustles" class="card">
         <h2>💰 Online Side Hustles</h2>
         <ul>
-            <li>Make money with Monetag</li>
-            <li>Blogging for beginners</li>
-            <li>Faceless YouTube automation</li>
+            <li>Maximizing Earnings with Monetag</li>
+            <li>Blogging Blueprint for 2026</li>
+            <li>Mastering Faceless YouTube Channels</li>
         </ul>
-    </div>
+    </article>
 
-    <div id="seo" class="card">
-        <h2>🔍 SEO Tips</h2>
+    <article id="seo" class="card">
+        <h2>🔍 SEO Strategies</h2>
         <ul>
-            <li>How to rank on Google</li>
-            <li>Keyword research basics</li>
-            <li>Writing SEO-friendly articles</li>
+            <li>Rank #1: The Google Algorithm Guide</li>
+            <li>High-Value Keyword Research</li>
+            <li>Content Optimization Checklist</li>
         </ul>
-    </div>
+    </article>
 
-    <div id="tools" class="card">
-        <h2>⚙️ Free Tools & Resources</h2>
+    <article id="tools" class="card">
+        <h2>⚙️ Free Resources</h2>
         <ul>
-            <li>AI tools</li>
-            <li>Productivity tools</li>
-            <li>Downloadable resources</li>
+            <li>Best-in-Class AI Writing Tools</li>
+            <li>Daily Productivity Dashboards</li>
+            <li>Premium PDF Guides & Templates</li>
         </ul>
-    </div>
+    </article>
 
-</div>
+</main>
 
 <footer>
-    <p>© 2026 QuickResourceDaily | All Rights Reserved</p>
+    <p>&copy; 2026 QuickResourceDaily. Built for Growth.</p>
 </footer>
 
 </body>
