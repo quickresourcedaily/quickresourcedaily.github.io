@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Point to your existing sitemap file
+Sitemap: https://quickresourcedaily.github.io/sitemap.txt
