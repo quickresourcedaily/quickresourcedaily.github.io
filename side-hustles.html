@@ -3,128 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Side Hustles & Passive Income | QuickResourceDaily</title>
+    
+    <title>Profitable Side Hustles & Digital Income Strategies 2026 | QuickResourceDaily</title>
+    <meta name="description" content="Discover the best side hustles for 2026. Learn how to scale passive income using AI automation, Monetag strategies, and faceless content creation for maximum profit.">
+    <meta name="keywords" content="Side Hustles 2026, Passive Income, AI Content Automation, Monetag Strategy, Make Money Online, Faceless YouTube Guide">
+    
+    <meta property="og:title" content="Profitable Side Hustles & Digital Income 2026">
+    <meta property="og:description" content="Turn AI and automation into a steady stream of passive income. Explore our proven 2026 blueprints.">
+    <meta property="og:type" content="article">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
+        /* Keep your existing styles but add this small tweak for mobile links */
         :root {
-            --primary: #10b981; /* Success Green for Money/Hustles */
+            --primary: #10b981; 
             --dark: #0f172a;
             --light: #f8fafc;
             --text: #475569;
             --white: #ffffff;
             --border: #e2e8f0;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            background-color: var(--light);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* HEADER NAV */
-        nav {
-            background: var(--white);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-        }
-
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; background-color: var(--light); color: var(--text); -webkit-font-smoothing: antialiased; }
+        
+        nav { background: var(--white); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top:0; z-index: 100; }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--dark); text-decoration: none; }
-        .back-link { font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600; }
+        .back-link { font-size: 0.9rem; color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 5px; }
 
-        /* HERO AREA */
-        .page-header {
-            background: linear-gradient(to bottom, #ecfdf5, var(--white));
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-
+        .page-header { background: linear-gradient(to bottom, #ecfdf5, var(--white)); padding: 60px 20px; text-align: center; border-bottom: 1px solid var(--border); }
         .page-header h1 { font-size: 2.5rem; color: var(--dark); letter-spacing: -1px; margin-bottom: 10px; }
-        .page-header p { max-width: 600px; margin: 0 auto; color: #64748b; }
+        .page-header p { max-width: 600px; margin: 0 auto; color: #64748b; font-size: 1.1rem; }
 
-        /* ARTICLE GRID */
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .hustle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .hustle-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 25px; transition: all 0.2s ease; text-decoration: none; display: block; position: relative; overflow: hidden; }
+        .hustle-card::after { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary); }
+        .hustle-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); background: #f9fafb; }
+        .hustle-card .tag { font-size: 0.7rem; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .hustle-card h2 { font-size: 1.15rem; color: var(--dark); line-height: 1.4; margin-bottom: 10px; }
+        .hustle-card p { font-size: 0.9rem; color: #64748b; }
 
-        .hustle-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .hustle-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.2s ease;
-            text-decoration: none;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hustle-card::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--primary);
-        }
-
-        .hustle-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            background: #f9fafb;
-        }
-
-        .hustle-card .tag {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .hustle-card h2 {
-            font-size: 1.15rem;
-            color: var(--dark);
-            line-height: 1.4;
-            margin-bottom: 10px;
-        }
-
-        .hustle-card p {
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.85rem; }
-
-        @media (max-width: 600px) {
-            .page-header h1 { font-size: 2rem; }
-        }
+        footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); color: #94a3b8; font-size: 0.85rem; }
+        footer a { color: var(--text); text-decoration: none; margin: 0 10px; }
+        @media (max-width: 600px) { .page-header h1 { font-size: 2rem; } }
     </style>
 </head>
-<body>
 
+<body>
 <nav>
     <a href="index.html" class="logo">QuickResourceDaily</a>
-    <a href="index.html" class="back-link">← Back to Home</a>
+    <a href="index.html" class="back-link">🏠 Home</a>
 </nav>
 
 <header class="page-header">
     <h1>💰 Profitable Side Hustles</h1>
-    <p>Scaling digital income streams with automation, AI tools, and smart ad network strategies.</p>
+    <p>Proven blueprints for scaling digital income with AI automation and ad network strategies.</p>
 </header>
 
 <main class="container">
