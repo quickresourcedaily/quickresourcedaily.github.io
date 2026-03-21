@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Point to your existing sitemap file
+# Direct Google to the high-priority XML sitemap
 Sitemap: https://quickresourcedaily.github.io/sitemap.xml
