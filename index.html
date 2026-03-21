@@ -215,5 +215,21 @@
     <p>&copy; 2026 QuickResourceDaily. All Rights Reserved.</p>
 </footer>
 
+<script>
+function searchArticles() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let list = document.getElementById("articleList");
+    let items = list.getElementsByTagName("li");
+
+    for (let i = 0; i < items.length; i++) {
+        let text = items[i].textContent.toLowerCase();
+        if (text.includes(input)) {
+            items[i].style.display = "";
+        } else {
+            items[i].style.display = "none";
+        }
+    }
+}
+</script>
 </body>
 </html>
