@@ -246,6 +246,24 @@
                 .article-item img { width: 100%; height: 180px; }
             }
         }
+        .footer-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
     </style>
 </head>
 <body>
@@ -377,7 +395,15 @@ loadPosts();
 <footer style="background:var(--navy); color:white; padding:60px 20px; text-align:center; margin-top:80px;">
     <p style="font-weight:800; font-size:1.2rem; margin-bottom:10px;">QuickResourceDaily</p>
     <p style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Empowering creators with AI, Tech, and Financial Freedom.</p>
-    <div style="margin-top:20px; font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+    
+    <div class="footer-links">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </div>
+
+    <div style="margin-top:20px; font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; color:rgba(255,255,255,0.4);">
         &copy; 2026 QuickResourceDaily. All rights reserved.
     </div>
 </footer>
