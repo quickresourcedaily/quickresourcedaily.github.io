@@ -7,6 +7,18 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <script>
+    // 2. FORCED BYPASS: Tell the widget exactly where your Netlify site is
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", () => {
+        // This links your GitHub page to your Netlify Identity instance
+        window.netlifyIdentity.setLocatorStrategy('url');
+        window.netlifyIdentity.init({
+          API_URL: "https://harmonious-platypus-23843b.netlify.app/.netlify/identity"
+        });
+      });
+    }
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
