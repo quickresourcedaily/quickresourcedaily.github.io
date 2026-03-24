@@ -19,35 +19,58 @@ jobs:
       - name: Generate index.json
         run: |
           echo "[" > index.json
-
           first=true
 
           for file in blog/*.html
           do
-            title=$(grep -m 1 "title:" "$file" | sed 's/.*title: *//; s/[",]//g')
-            description=$(grep -m 1 "description:" "$file" | sed 's/.*description: *//; s/[",]//g')
-            category=$(grep -m 1 "category:" "$file" | sed 's/.*category: *//; s/[",]//g')
-            date=$(grep -m 1 "date:" "$file" | sed 's/.*date: *//; s/[",]//g')
-            image=$(grep -m 1 "image:" "$file" | sed 's/.*image: *//; s/[",]//g')
-            url="/blog/$(basename "$file")"
-
-            if [ "$first" = true ]; then
-              first=false
-            else
-              echo "," >> index.json
+            title=$(grep -i "title:" "$file" | head -1 | sed 's/.*title://; s///' | tr -d '"' | tr -d "'" | xargs)
+            if [ -z "$title" ]; then
+              title=$(grep -oP '(?<=<title>).*?(?=</title>)' "$file" | head -1 | xargs)
             fi
 
-            cat >> index.json <<EOF
-  {
-    "title": "$title",
-    "description": "$description",
-    "category": "$category",
-    "date": "$date",
-    "image": "$image",
-    "url": "$url"
-  }
-EOF
+            description=$(grep -i "description:" "$file" | head -1 | sed 's/.*description://; s///' | tr -d '"' | tr -d "'" | xargs)
+            if [ -z "$description" ]; then
+              description=$(grep -oP '(?<=<meta name="description" content=").*?(?=")' "$file" | head -1 | xargs)
+            fi
 
+            image=$(grep -i "image:" "$file" | head -1 | sed 's/.*image://; s///' | tr -d '"' | tr -d "'" | xargs)
+            if [ -z "$image" ]; then
+              image=$(grep -oP '(?<=<meta property="og:image" content=").*?(?=")' "$file" | head -1 | xargs)
+            fi
+            if [ -z "$image" ]; then
+              image=$(grep -oP '(?<=<img src=").*?(?=")' "$file" | head -1 | xargs)
+            fi
+
+            category=$(grep -i "category:" "$file" | head -1 | sed 's/.*category://; s///' | tr -d '"' | tr -d "'" | xargs)
+            if [ -z "$category" ]; then
+              category=$(grep -oP '(?<=<meta name="category" content=").*?(?=")' "$file" | head -1 | xargs)
+            fi
+            if [ -z "$category" ]; then category="Tech"; fi
+
+            date=$(grep -i "date:" "$file" | head -1 | sed 's/.*date://; s///' | tr -d '"' | tr -d "'" | xargs)
+            if [ -z "$date" ]; then date=$(date +%Y-%m-%d); fi
+
+            url="/blog/$(basename "$file")"
+
+            if [ -n "$title" ]; then
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo "," >> index.json
+              fi
+
+              title_json=$(echo "$title" | sed 's/"/\\"/g')
+              desc_json=$(echo "$description" | sed 's/"/\\"/g')
+
+              echo "  {" >> index.json
+              echo "    \"title\": \"$title_json\"," >> index.json
+              echo "    \"description\": \"$desc_json\"," >> index.json
+              echo "    \"category\": \"$category\"," >> index.json
+              echo "    \"date\": \"$date\"," >> index.json
+              echo "    \"image\": \"$image\"," >> index.json
+              echo "    \"url\": \"$url\"" >> index.json
+              echo "  }" >> index.json
+            fi
           done
 
           echo "]" >> index.json
