@@ -9,3 +9,6 @@ Sitemap: https://quickresourcedaily.github.io/sitemap.xml
 # Prevent Google from showing the sitemap itself as a "searchable page"
 Disallow: /sitemap.xml
 Disallow: /my-favicon/
+User-agent: Googlebot-Image
+Allow: /my-favicon/
+Allow: /favicon.ico
