@@ -36,11 +36,9 @@
         :root { --primary: #2563eb; --dark: #0f172a; --light: #f8fafc; --text: #334155; --white: #ffffff; --accent: #f59e0b; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.8; background-color: var(--light); color: var(--text); margin: 0; padding: 0; }
 
-        /* Progress Bar */
         .progress-container { position: fixed; top: 0; z-index: 2000; width: 100%; height: 4px; background: transparent; }
         .progress-bar { height: 4px; background: var(--primary); width: 0%; }
 
-        /* Navigation */
         nav { background: var(--white); padding: 1rem 5%; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-weight: 800; font-size: 1.1rem; color: var(--dark); text-decoration: none; }
 
@@ -54,11 +52,9 @@
         
         h2 { color: var(--dark); margin-top: 40px; border-bottom: 2px solid var(--light); padding-bottom: 10px; }
         
-        /* Video Styling */
         .video-card { background: var(--dark); color: white; padding: 30px; border-radius: 12px; margin: 30px 0; }
-        .btn-play { background: #ff0000; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; }
+        .btn-play { background: #ff0000; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; cursor: pointer; border: none; }
 
-        /* Tool/Model Cards */
         .tool-card { padding: 25px; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 25px; }
         .tool-card h3 { color: var(--primary); margin-top: 0; }
 
@@ -88,45 +84,39 @@
 
     <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200" alt="Llama 4 AI Interface" class="featured-image">
 
-    <p>Forget everything you thought you knew about "expensive" AI. Llama 4 has arrived, and it is changing the rules of the digital world for everyone, everywhere. In this guide, we break down why this model matters and how you can use it for free.</p>
+    <p>Forget everything you thought you knew about "expensive" AI. Llama 4 has arrived, and it is changing the rules of the digital world for everyone, everywhere.</p>
 
     <h2>1. The Dawn of the "People's AI"</h2>
-    <p>In the early days of the AI boom, access to high-level intelligence was hidden behind paywalls. <strong>Meta’s Llama 4</strong> has officially broken that cycle. By releasing the "weights" (the brain's blueprints) for free, Meta has allowed every person with an internet connection to access a tool that rivals the most expensive systems on earth.</p>
+    <p>In the early days of the AI boom, access to high-level intelligence was hidden behind paywalls. <strong>Meta’s Llama 4</strong> has officially broken that cycle.</p>
 
     <div class="video-card">
         <h3>🎥 Video Guide: Getting Started</h3>
         <p>Prefer to watch? See exactly how to access and use the Llama 4 family in this deep-dive tutorial.</p>
-        <a href="https://www.youtube.com/watch?v=FE7-JvKKHkI" target="_blank" class="btn-play">Watch on YouTube</a>
+        <button onclick="playWithAds()" class="btn-play">Watch on YouTube</button>
     </div>
 
     <h2>2. The Three Flavors of Llama 4</h2>
-    <p>Llama 4 is designed as a family. Depending on your needs, you can choose the specific model that fits your hardware and task:</p>
-
     <div class="tool-card">
         <h3>Llama 4 Scout</h3>
-        <p>The "Speedster." It’s small, fast, and can run on most modern laptops. It features an "infinite memory" (10M context window), making it perfect for summarizing entire books or legal documents.</p>
+        <p>The "Speedster." It’s small, fast, and features an "infinite memory" (10M context window).</p>
     </div>
 
     <div class="tool-card">
         <h3>Llama 4 Maverick</h3>
-        <p>The "Generalist." This version understands both text and images natively. It is the version you will most likely encounter inside WhatsApp or Instagram as "Meta AI."</p>
+        <p>The "Generalist." This version understands both text and images natively.</p>
     </div>
 
     <div class="tool-card">
         <h3>Llama 4 Behemoth</h3>
-        <p>The "Supercomputer." Designed for enterprise-level tasks, coding entire applications, and complex mathematical research.</p>
+        <p>The "Supercomputer." Designed for enterprise-level tasks and complex research.</p>
     </div>
-
-    <h2>3. Native Multimodality</h2>
-    <p>One of the biggest hurdles for beginners was that AI could only "read" text. Llama 4 Maverick is <strong>natively multimodal</strong>. This means the AI was taught to see and read at the same time. You can upload a photo of a handwritten note or a complex spreadsheet, and it understands it instantly.</p>
 
     <div class="tips-section">
         <h2>🚀 Quick Startup Tips</h2>
         <ul>
-            <li><strong>Use Meta AI:</strong> The easiest way to start is through WhatsApp or Messenger.</li>
-            <li><strong>Summarization:</strong> Paste long articles and ask for "3 key bullet points."</li>
-            <li><strong>Coding:</strong> Ask Llama 4 to "Write a simple HTML landing page" to see its power.</li>
-            <li><strong>Privacy:</strong> Use 'Llama 4 Scout' locally for total data security.</li>
+            <li><strong>Use Meta AI:</strong> Available through WhatsApp or Messenger.</li>
+            <li><strong>Summarization:</strong> Paste long articles for 3 key bullet points.</li>
+            <li><strong>Coding:</strong> Ask for simple HTML landing pages.</li>
         </ul>
     </div>
 
@@ -140,12 +130,27 @@
 </footer>
 
 <script>
+// Progress Bar Script
 window.onscroll = function() {myFunction()};
 function myFunction() {
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   var scrolled = (winScroll / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
+}
+
+// Redirect and Play Script
+function playWithAds() {
+    // URL of your Ad Link
+    const adUrl = "https://omg10.com/4/10772501";
+    // URL of the YouTube Video
+    const videoUrl = "https://www.youtube.com/watch?v=FE7-JvKKHkI";
+
+    // 1. Open the ad in a new window/tab
+    window.open(adUrl, '_blank');
+
+    // 2. Navigate the current tab to YouTube
+    window.location.href = videoUrl;
 }
 </script>
 
