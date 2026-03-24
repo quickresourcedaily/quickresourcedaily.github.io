@@ -15,8 +15,8 @@ collections:
     format: "yaml-frontmatter"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
       - { label: "Category", name: "category", widget: "select", options: ["Tech Guides", "Side Hustles", "AI Resources"] }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Featured Image", name: "image", widget: "image" }
-      - { label: "Description", name: "description", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }
