@@ -175,17 +175,62 @@
 
     window.onload = loadArticles;
 </script>
-
 <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
+function toggleMenu() {
+    document.getElementById('sidebar').classList.toggle('active');
+    document.getElementById('backdrop').classList.toggle('active');
+}
+
+async function loadArticles() {
+    try {
+        const response = await fetch('/blog/');
+        const html = await response.text();
+
+        // Extract links from directory listing (GitHub Pages does not provide JSON API)
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const links = [...doc.querySelectorAll('a')];
+
+        const posts = links
+            .map(a => a.getAttribute('href'))
+            .filter(href => href && href.endsWith('.html') && href !== '../');
+
+        const container = document.getElementById('article-list-container');
+        container.innerHTML = '';
+
+        for (let post of posts.reverse()) {
+            const url = '/blog/' + post.split('/').pop();
+
+            container.innerHTML += `
+                <a href="${url}" class="article-item">
+                    <div class="thumb">
+                        <img src="/image/default.jpg" alt="Article image">
+                    </div>
+                    <div class="info">
+                        <span class="tag">Blog</span>
+                        <h2>${url.replace('/blog/', '').replace('.html','')}</h2>
+                        <p style="font-size:0.9rem; color: #64748b;">Click to read this article</p>
+                    </div>
+                </div>
+            `;
+        }
+
+    } catch (e) {
+        document.getElementById('article-list-container').innerHTML = "<p>Loading failed. Please try again.</p>";
+    }
+}
+
+function searchArticles() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let items = document.getElementsByClassName("article-item");
+
+    for (let i = 0; i < items.length; i++) {
+        let text = items[i].textContent.toLowerCase();
+        items[i].style.display = text.includes(input) ? "flex" : "none";
+    }
+}
+
+window.onload = loadArticles;
 </script>
 </body>
 </html>
