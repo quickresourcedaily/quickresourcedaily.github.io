@@ -194,14 +194,16 @@ let allPosts = [];
 
 async function loadArticles() {
     try {
-        const res = await fetch('/index.json');
+        // Added a cache-buster (?v=) to ensure it always loads the freshest JSON
+        const res = await fetch('/index.json?v=' + Date.now());
         const posts = await res.json();
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        allPosts = posts;
-        displayPosts(posts);
+        
+        // Filter out any broken entries and sort by date
+        allPosts = posts.filter(p => p.title).sort((a, b) => new Date(b.date) - new Date(a.date));
+        displayPosts(allPosts);
     } catch (err) {
         console.error("Failed to load index.json:", err);
-        document.getElementById('articles').innerHTML = "<p style='text-align:center; padding: 40px;'>Error loading articles.</p>";
+        document.getElementById('articles').innerHTML = "<p style='text-align:center; padding: 40px;'>Error loading articles. Check if index.json exists.</p>";
     }
 }
 
@@ -209,17 +211,28 @@ function displayPosts(posts) {
     const container = document.getElementById('articles');
     container.innerHTML = '';
 
-    if (!posts.length) {
+    if (!posts || posts.length === 0) {
         container.innerHTML = "<p style='text-align:center; padding: 40px;'>No articles found.</p>";
         return;
     }
 
     posts.forEach(p => {
+        // --- THE IMAGE PATH FIX ---
+        // 1. Remove "../" if it exists
+        // 2. Ensure it starts with "/"
+        let cleanImg = p.image ? p.image.replace('../', '') : '';
+        if (cleanImg && !cleanImg.startsWith('/')) {
+            cleanImg = '/' + cleanImg;
+        }
+        
+        // Fallback for missing images
+        const finalImg = cleanImg || 'https://via.placeholder.com/180?text=No+Image';
+
         container.innerHTML += `
         <a href="${p.url}" class="article-item">
-            <img src="${p.image}" alt="${p.title}" loading="lazy">
+            <img src="${finalImg}" alt="${p.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/180?text=Error'">
             <div class="info">
-                <span class="tag">${p.category}</span>
+                <span class="tag">${p.category || 'Guide'}</span>
                 <h2>${p.title}</h2>
                 <p>${p.description}</p>
                 <div class="read-more">Read Article</div>
@@ -232,15 +245,20 @@ function filterCategory(cat, btn) {
     document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     if (cat === "All") displayPosts(allPosts);
-    else displayPosts(allPosts.filter(p => p.category.includes(cat)));
+    else {
+        const filtered = allPosts.filter(p => 
+            p.category && p.category.toLowerCase().includes(cat.toLowerCase())
+        );
+        displayPosts(filtered);
+    }
 }
 
 document.getElementById("searchInput").addEventListener("input", function () {
     let val = this.value.toLowerCase();
     let filtered = allPosts.filter(p =>
-        p.title.toLowerCase().includes(val) ||
-        p.description.toLowerCase().includes(val) ||
-        p.category.toLowerCase().includes(val)
+        (p.title && p.title.toLowerCase().includes(val)) ||
+        (p.description && p.description.toLowerCase().includes(val)) ||
+        (p.category && p.category.toLowerCase().includes(val))
     );
     displayPosts(filtered);
 });
