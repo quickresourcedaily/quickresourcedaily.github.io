@@ -1,8 +1,6 @@
 backend:
   name: git-gateway
   branch: main
-  # THIS IS THE FIX: It tells the CMS where your "Identity" lives
-  site_id: harmonious-platypus-23843b.netlify.app
 
 media_folder: "image"
 public_folder: "/image"
@@ -13,13 +11,12 @@ collections:
     folder: "blog"
     create: true
     slug: "{{slug}}"
-    # Fix: Changed format to 'yaml-frontmatter' (Standard for HTML/Markdown)
     extension: "html"
     format: "yaml-frontmatter"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Category", name: "category", widget: "select", options: ["Tech Guides", "Side Hustles", "AI Resources"]}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Tech Guides", "Side Hustles", "AI Resources"] }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
