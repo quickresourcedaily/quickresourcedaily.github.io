@@ -134,13 +134,49 @@ footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem; }
 </div>  
 
 </main>  
+<script>
+fetch("../index.json")
+.then(res => res.json())
+.then(posts => {
 
-<div style="margin: 40px auto; max-width: 800px; padding: 25px; border: 2px solid #10b981; border-radius: 12px; background-color: #f0fdf4;">  
-<span style="color: #10b981; font-weight: 800; font-size: 0.8rem;">Recommended</span>  
-<h3>Turn your tech skills into income</h3>  
-<p>Learn how to make $1,000/month using AI tools.</p>  
-<a href="../blog/passive-income-1000-month.html" style="background: #10b981; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px;">Read Guide</a>  
-</div>  
+    const currentUrl = window.location.pathname;
+
+    // Get current category from page
+    const category = document.querySelector('meta[name="category"]')?.content;
+
+    // FILTER SAME CATEGORY
+    let related = posts.filter(p => 
+        p.url !== currentUrl &&
+        p.category === category
+    );
+
+    // If not enough → fallback to latest
+    if(related.length < 3){
+        related = posts.filter(p => p.url !== currentUrl);
+    }
+
+    // SORT NEWEST
+    related.sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+    related = related.slice(0,3);
+
+    const container = document.getElementById("relatedPosts");
+
+    related.forEach(post => {
+        const card = document.createElement("div");
+
+        card.innerHTML = `
+            <a href="${post.url}">
+                <img src="${post.image}" style="width:100%;border-radius:10px;">
+                <h3>${post.title}</h3>
+                <p>${post.description}</p>
+            </a>
+        `;
+
+        container.appendChild(card);
+    });
+});
+</script>
 
 <footer>  
 <p><a href="../privacy-policy.html">Privacy Policy</a></p>  
