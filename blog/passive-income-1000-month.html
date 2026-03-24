@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta name="category" content="Make Money Online">
+
 <!-- FRONTMATTER (FOR index.json) -->
 <!--
 title: "Beginner Guide to $1,000/Month Passive Income Using AI Tools (2026)"
@@ -26,7 +28,6 @@ gtag('config', 'G-KN49BMXF6T');
 <title>Beginner Guide to $1,000/Month Passive Income Using AI Tools (2026)</title>
 <meta name="description" content="Learn how beginners can realistically make $1,000 per month in passive income using AI tools, blogging, and ad networks in 2026.">
 
-<!-- OPEN GRAPH -->
 <meta property="og:title" content="Beginner Guide to $1,000/Month Passive Income Using AI Tools (2026)">
 <meta property="og:description" content="Step-by-step strategy to build passive income using AI tools.">
 <meta property="og:image" content="https://quickresourcedaily.github.io/image/laptop-screen-showing-digital-marketing.jpg">
@@ -53,14 +54,17 @@ body {
     line-height:1.8;
 }
 
+/* NAV */
 nav {
     background:var(--white);
     padding:1rem 2rem;
     border-bottom:1px solid var(--border);
     display:flex;
     justify-content:space-between;
+    align-items:center;
 }
 
+/* CONTAINER */
 .container {
     max-width:850px;
     margin:40px auto;
@@ -69,9 +73,28 @@ nav {
     border-radius:16px;
 }
 
-h1 {font-size:2.5rem;color:var(--dark);}
-h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);padding-left:15px;}
+/* TYPOGRAPHY */
+h1 {
+    font-size:2.5rem;
+    color:var(--dark);
+    line-height:1.2;
+}
 
+h2 {
+    margin-top:40px;
+    color:var(--dark);
+    border-left:5px solid var(--primary);
+    padding-left:15px;
+}
+
+/* IMAGES */
+img {
+    max-width:100%;
+    height:auto;
+    border-radius:12px;
+}
+
+/* BOXES */
 .highlight-box {
     background:#f0fdf4;
     padding:20px;
@@ -79,6 +102,7 @@ h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);paddi
     margin:25px 0;
 }
 
+/* RELATED POSTS */
 .related-posts {
     margin-top:60px;
 }
@@ -101,11 +125,26 @@ h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);paddi
     border-color:var(--primary);
 }
 
-.related-card img {
-    width:100%;
-    border-radius:8px;
-    margin-bottom:10px;
+/* MOBILE FIXES */
+@media (max-width: 768px) {
+
+    .container {
+        margin:20px 15px;
+        padding:20px;
+        border-radius:12px;
+    }
+
+    h1 {
+        font-size:1.8rem;
+    }
+
+    nav {
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
 }
+
 </style>
 
 </head>
@@ -113,8 +152,8 @@ h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);paddi
 <body>
 
 <nav>
-<a href="../index.html"><strong>QuickResourceDaily</strong></a>
-<a href="../index.html">Home</a>
+<a href="https://quickresourcedaily.github.io/"><strong>QuickResourceDaily</strong></a>
+<a href="https://quickresourcedaily.github.io/">Home</a>
 </nav>
 
 <article class="container">
@@ -123,13 +162,13 @@ h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);paddi
 
 <p><strong>Looking to make $1,000/month online?</strong> This guide shows you exactly how beginners are doing it using AI, blogging, and smart monetization.</p>
 
-<img src="../image/laptop-screen-showing-digital-marketing.jpg" style="width:100%;border-radius:12px;">
+<img src="../image/laptop-screen-showing-digital-marketing.jpg">
 
 <h2>Start With the Right Platform</h2>
 
 <p>Your platform determines everything. If you haven’t created a site yet, read this:</p>
 
-👉 <a href="free-website-platforms.html"><strong>How to Create a Website for Free (Top Platforms Ranked)</strong></a>
+<p><a href="free-website-platforms.html"><strong>How to Create a Website for Free (Top Platforms Ranked)</strong></a></p>
 
 <h2>The Real Math Behind $1,000/Month</h2>
 
@@ -142,7 +181,7 @@ h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);paddi
 
 <p>AI helps you write faster — but you must humanize content.</p>
 
-👉 <a href="ai-writing-tools.html"><strong>Best AI Writing Tools (2026)</strong></a>
+<p><a href="ai-writing-tools.html"><strong>Best AI Writing Tools (2026)</strong></a></p>
 
 <h2>Traffic Strategy</h2>
 
@@ -163,7 +202,6 @@ h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);paddi
 <h2>Conclusion</h2>
 <p>Consistency + AI + traffic = income.</p>
 
-<!-- RELATED POSTS AUTO LOAD -->
 <div class="related-posts">
 <h2>🔥 Related Articles</h2>
 <div class="related-grid" id="relatedPosts"></div>
@@ -177,24 +215,18 @@ fetch("../index.json")
 .then(posts => {
 
     const currentUrl = window.location.pathname;
-
-    // Get current category from page
     const category = document.querySelector('meta[name="category"]')?.content;
 
-    // FILTER SAME CATEGORY
     let related = posts.filter(p => 
         p.url !== currentUrl &&
         p.category === category
     );
 
-    // If not enough → fallback to latest
     if(related.length < 3){
         related = posts.filter(p => p.url !== currentUrl);
     }
 
-    // SORT NEWEST
     related.sort((a,b)=> new Date(b.date) - new Date(a.date));
-
     related = related.slice(0,3);
 
     const container = document.getElementById("relatedPosts");
@@ -204,7 +236,7 @@ fetch("../index.json")
 
         card.innerHTML = `
             <a href="${post.url}">
-                <img src="${post.image}" style="width:100%;border-radius:10px;">
+                <img src="${post.image}">
                 <h3>${post.title}</h3>
                 <p>${post.description}</p>
             </a>
