@@ -1,58 +1,61 @@
-: Generate Index JSON
+name: Generate Index JSON
 
 on:
-  push:
-    branches:
-      - main
+  push:
+    branches:
+      - main
 
 permissions:
-  contents: write
+  contents: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Generate index.json
-        run: |
-          echo "[" > index.json
+      - name: Generate index.json
+        run: |
+          echo "[" > index.json
 
-          first=true
+          first=true
 
-          for file in blog/*.html
-          do
-            title=$(grep -m 1 "title:" "$file" | sed 's/title: //; s/^"//; s/"$//')
-            description=$(grep -m 1 "description:" "$file" | sed 's/description: //; s/^"//; s/"$//')
-            category=$(grep -m 1 "category:" "$file" | sed 's/category: //; s/^"//; s/"$//')
-            date=$(grep -m 1 "date:" "$file" | sed 's/date: //; s/^"//; s/"$//')
-            image=$(grep -m 1 "image:" "$file" | sed 's/image: //; s/^"//; s/"$//')
-            url="/blog/$(basename "$file")"
+          for file in blog/*.html
+          do
+            title=$(grep -m 1 "title:" "$file" | sed 's/.*title: *//; s/[",]//g')
+            description=$(grep -m 1 "description:" "$file" | sed 's/.*description: *//; s/[",]//g')
+            category=$(grep -m 1 "category:" "$file" | sed 's/.*category: *//; s/[",]//g')
+            date=$(grep -m 1 "date:" "$file" | sed 's/.*date: *//; s/[",]//g')
+            image=$(grep -m 1 "image:" "$file" | sed 's/.*image: *//; s/[",]//g')
+            url="/blog/$(basename "$file")"
 
-            if [ "$first" = true ]; then
-              first=false
-            else
-              echo "," >> index.json
-            fi
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo "," >> index.json
+            fi
 
-            echo "  {" >> index.json
-            echo "    \"title\": \"$title\"," >> index.json
-            echo "    \"description\": \"$description\"," >> index.json
-            echo "    \"category\": \"$category\"," >> index.json
-            echo "    \"date\": \"$date\"," >> index.json
-            echo "    \"image\": \"$image\"," >> index.json
-            echo "    \"url\": \"$url\"" >> index.json
-            echo "  }" >> index.json
-          done
+            cat >> index.json <<EOF
+  {
+    "title": "$title",
+    "description": "$description",
+    "category": "$category",
+    "date": "$date",
+    "image": "$image",
+    "url": "$url"
+  }
+EOF
 
-          echo "]" >> index.json
+          done
 
-      - name: Commit and push index.json
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
-          git add index.json
-          git commit -m "Auto update index.json" || echo "No changes"
-          git push
+          echo "]" >> index.json
+
+      - name: Commit and push index.json
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add index.json
+          git commit -m "Auto update index.json" || echo "No changes"
+          git push
