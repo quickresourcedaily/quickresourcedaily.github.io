@@ -33,6 +33,7 @@ nav {
     padding:1rem;
     display:flex;
     justify-content:space-between;
+    font-weight:700;
 }
 
 .container {
@@ -47,6 +48,7 @@ nav {
     border-bottom:1px solid var(--border);
     padding:20px 0;
     text-decoration:none;
+    color:inherit;
 }
 
 .article-item img {
@@ -74,6 +76,7 @@ nav {
     border:1px solid var(--border);
     cursor:pointer;
     font-weight:700;
+    background:white;
 }
 
 .cat-btn.active {
@@ -96,10 +99,10 @@ nav {
 </section>
 
 <div style="text-align:center;margin-top:10px;">
-<button class="cat-btn active" onclick="filterCategory('All')">All</button>
-<button class="cat-btn" onclick="filterCategory('Tech')">Tech</button>
-<button class="cat-btn" onclick="filterCategory('AI')">AI</button>
-<button class="cat-btn" onclick="filterCategory('Make Money Online')">Money</button>
+<button class="cat-btn active" onclick="filterCategory('All', this)">All</button>
+<button class="cat-btn" onclick="filterCategory('Tech', this)">Tech</button>
+<button class="cat-btn" onclick="filterCategory('AI', this)">AI</button>
+<button class="cat-btn" onclick="filterCategory('Make Money Online', this)">Money</button>
 </div>
 
 <div class="container">
@@ -110,24 +113,36 @@ nav {
 let allPosts = [];
 
 async function loadArticles() {
-    const res = await fetch('index.json');
-    let posts = await res.json();
+    try {
+        const res = await fetch('/index.json');
+        const posts = await res.json();
 
-    // Sort newest first
-    posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
+        // Sort newest first
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    allPosts = posts;
-    displayPosts(posts);
+        allPosts = posts;
+        displayPosts(posts);
+
+    } catch (err) {
+        console.error("Failed to load index.json:", err);
+        document.getElementById('articles').innerHTML =
+            "<p style='color:red;'>Failed to load articles. Check index.json path.</p>";
+    }
 }
 
-function displayPosts(posts){
+function displayPosts(posts) {
     const container = document.getElementById('articles');
     container.innerHTML = '';
 
-    posts.forEach(p=>{
+    if (!posts.length) {
+        container.innerHTML = "<p>No articles found.</p>";
+        return;
+    }
+
+    posts.forEach(p => {
         container.innerHTML += `
         <a href="${p.url}" class="article-item">
-            <img src="${p.image}">
+            <img src="${p.image}" alt="${p.title}">
             <div class="info">
                 <span class="tag">${p.category}</span>
                 <h2>${p.title}</h2>
@@ -137,26 +152,31 @@ function displayPosts(posts){
     });
 }
 
-function filterCategory(cat){
-    document.querySelectorAll('.cat-btn').forEach(btn=>btn.classList.remove('active'));
-    event.target.classList.add('active');
+function filterCategory(cat, btn) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 
-    if(cat==="All"){
+    if (cat === "All") {
         displayPosts(allPosts);
     } else {
-        displayPosts(allPosts.filter(p=>p.category.includes(cat)));
+        displayPosts(allPosts.filter(p => p.category.includes(cat)));
     }
 }
 
-document.getElementById("searchInput").addEventListener("input", function(){
+// Search
+document.getElementById("searchInput").addEventListener("input", function () {
     let val = this.value.toLowerCase();
+
     let filtered = allPosts.filter(p =>
         p.title.toLowerCase().includes(val) ||
-        p.description.toLowerCase().includes(val)
+        p.description.toLowerCase().includes(val) ||
+        p.category.toLowerCase().includes(val)
     );
+
     displayPosts(filtered);
 });
 
+// Init
 loadArticles();
 </script>
 
