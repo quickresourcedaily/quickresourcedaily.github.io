@@ -1,252 +1,265 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-
-<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>QuickResourceDaily | Tech Guides, Side Hustles & AI</title>
-<meta name="description" content="Expert-led Android troubleshooting, AI strategies, and side hustle guides.">
-
-<link href="https://fonts.googleapis.com" rel="stylesheet">
-
-<style>
-:root {
-    --primary:#2563eb;
-    --primary-hover: #1d4ed8;
-    --dark:#0f172a;
-    --light:#f8fafc;
-    --text:#475569;
-    --white:#fff;
-    --border:#e2e8f0;
+<title>QuickResourceDaily</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+:root{
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --primary:#2563eb;
 }
 
-body {
-    font-family:'Inter',sans-serif;
-    background:var(--light);
-    margin:0;
-    line-height: 1.5;
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
 
-nav {
-    background:#fff;
-    padding:1rem;
-    display:flex;
-    justify-content:space-between;
-    font-weight:700;
-    border-bottom: 1px solid var(--border);
+header{
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.container {
-    max-width:900px; 
-    margin:30px auto;
-    padding:0 20px;
+header h1{
+  font-size:20px;
+  margin:0;
 }
 
-.article-item {
-    display:flex;
-    gap:30px; 
-    border-bottom:1px solid var(--border);
-    padding:30px 0;
-    text-decoration:none;
-    color:inherit;
-    align-items: stretch; /* Stretch helps align internal buttons */
-    transition: transform 0.2s ease;
+.hero{
+  padding:60px 20px;
+  text-align:center;
+  background:#0f172a;
+  color:white;
 }
 
-.article-item:hover {
-    transform: translateY(-2px);
+.hero h2{
+  font-size:2.5rem;
+  margin-bottom:20px;
 }
 
-.article-item img {
-    width:180px;
-    height:180px;
-    object-fit:cover;
-    border-radius:12px;
-    flex-shrink: 0; 
-    background: #eee;
+#searchInput{
+  padding:14px 20px;
+  width:100%;
+  max-width:500px;
+  border-radius:30px;
+  border:none;
+  outline:none;
 }
 
-.info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Takes up all available space */
+.container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:0 20px;
 }
 
-.tag {
-    font-size:0.75rem;
-    font-weight:800;
-    color:var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
+.section-title{
+  font-size:1.5rem;
+  margin:40px 0 20px;
 }
 
-.info h2 {
-    margin:0;
-    color:var(--dark);
-    font-size: 1.5rem;
-    line-height: 1.2;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
 
-.info p {
-    margin: 10px 0;
-    color: var(--text);
-    font-size: 1rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.featured-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  transition:0.2s;
 }
 
-/* The Read More Button */
-.read-more {
-    margin-top: auto; /* Pushes the button to the absolute bottom */
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+.featured-card:hover{
+  transform:translateY(-4px);
 }
 
-.read-more::after {
-    content: '→';
-    transition: transform 0.2s;
+.featured-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
 }
 
-.article-item:hover .read-more::after {
-    transform: translateX(5px);
+.featured-content{
+  padding:15px;
 }
 
-.cat-btn {
-    padding:8px 18px;
-    margin:5px;
-    border-radius:20px;
-    border:1px solid var(--border);
-    cursor:pointer;
-    font-weight:600;
-    background:white;
-    transition: all 0.2s;
+.featured-content h3{
+  margin:0;
+  font-size:1.1rem;
 }
 
-.cat-btn.active {
-    background:var(--primary);
-    color:white;
-    border-color: var(--primary);
+.featured-content p{
+  font-size:0.9rem;
+  color:var(--muted);
 }
 
-#searchInput {
-    padding:14px 24px;
-    width:100%;
-    max-width:450px;
-    border-radius:30px;
-    border:none;
-    font-size: 1rem;
-    outline: none;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+.article-list{
+  margin-top:20px;
 }
 
-@media (max-width: 700px) {
-    .article-item {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .article-item img {
-        width: 100%;
-        height: 220px;
-    }
+.article-item{
+  display:flex;
+  gap:20px;
+  padding:20px 0;
+  border-bottom:1px solid var(--border);
+  text-decoration:none;
+  color:inherit;
 }
-</style>
 
-</head>
+.article-item img{
+  width:160px;
+  height:120px;
+  object-fit:cover;
+  border-radius:10px;
+}
 
-<body>
+.article-info h3{
+  margin:0;
+}
 
-<nav>
-<strong>QuickResourceDaily</strong>
-</nav>
+.article-info p{
+  font-size:0.9rem;
+  color:var(--muted);
+}
 
-<section style="background:#0f172a;color:white;padding:80px 20px;text-align:center;">
-<h1 style="margin-bottom:30px; font-size: 2.8rem; letter-spacing: -0.02em;">Master the Digital Frontier</h1>
-<input id="searchInput" placeholder="Search for guides, tools, or tips...">
-</section>
+.pagination{
+  display:flex;
+  justify-content:center;
+  margin:40px 0;
+  gap:10px;
+}
 
-<div style="text-align:center;margin-top:25px;">
-<button class="cat-btn active" onclick="filterCategory('All', this)">All</button>
-<button class="cat-btn" onclick="filterCategory('Tech', this)">Tech</button>
-<button class="cat-btn" onclick="filterCategory('AI', this)">AI</button>
-<button class="cat-btn" onclick="filterCategory('Make Money Online', this)">Money</button>
-</div>
+.pagination button{
+  padding:8px 14px;
+  border:1px solid var(--border);
+  background:white;
+  cursor:pointer;
+  border-radius:6px;
+}
 
-<div class="container">
-<div id="articles"></div>
-</div>
+.pagination button.active{
+  background:var(--primary);
+  color:white;
+}
 
-<script>
+@media(max-width:700px){
+  .article-item{
+    flex-direction:column;
+  }
+  .article-item img{
+    width:100%;
+    height:200px;
+  }
+}
+</style></head><body><header>
+<h1>QuickResourceDaily</h1>
+</header><section class="hero">
+<h2>Master the Digital Frontier</h2>
+<input id="searchInput" placeholder="Search articles...">
+</section><div class="container"><h2 class="section-title">🔥 Featured Posts</h2>
+<div class="featured-grid" id="featured"></div><h2 class="section-title">Latest Articles</h2>
+<div class="article-list" id="articles"></div><div class="pagination" id="pagination"></div></div><script>
 let allPosts = [];
+const perPage = 5;
+let currentPage = 1;
 
-async function loadArticles() {
-    try {
-        const res = await fetch('/index.json');
-        const posts = await res.json();
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        allPosts = posts;
-        displayPosts(posts);
-    } catch (err) {
-        console.error("Failed to load index.json:", err);
-        document.getElementById('articles').innerHTML = "<p style='text-align:center; padding: 40px;'>Error loading articles.</p>";
-    }
+async function loadPosts(){
+  const res = await fetch('/index.json');
+  const posts = await res.json();
+
+  posts.sort((a,b)=> new Date(b.date)-new Date(a.date));
+  allPosts = posts;
+
+  renderFeatured(posts.slice(0,3));
+  renderPage();
 }
 
-function displayPosts(posts) {
-    const container = document.getElementById('articles');
-    container.innerHTML = '';
-
-    if (!posts.length) {
-        container.innerHTML = "<p style='text-align:center; padding: 40px;'>No articles found.</p>";
-        return;
-    }
-
-    posts.forEach(p => {
-        container.innerHTML += `
-        <a href="${p.url}" class="article-item">
-            <img src="${p.image}" alt="${p.title}" loading="lazy">
-            <div class="info">
-                <span class="tag">${p.category}</span>
-                <h2>${p.title}</h2>
-                <p>${p.description}</p>
-                <div class="read-more">Read Article</div>
-            </div>
-        </a>`;
-    });
+function renderFeatured(posts){
+  const container = document.getElementById('featured');
+  container.innerHTML = posts.map(p => `
+    <a href="${p.url}" class="featured-card">
+      <img src="${p.image}">
+      <div class="featured-content">
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+      </div>
+    </a>
+  `).join('');
 }
 
-function filterCategory(cat, btn) {
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if (cat === "All") displayPosts(allPosts);
-    else displayPosts(allPosts.filter(p => p.category.includes(cat)));
+function renderPage(){
+  const start = (currentPage-1)*perPage;
+  const end = start + perPage;
+  const pagePosts = allPosts.slice(start,end);
+
+  const container = document.getElementById('articles');
+  container.innerHTML = pagePosts.map(p => `
+    <a href="${p.url}" class="article-item">
+      <img src="${p.image}">
+      <div class="article-info">
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+      </div>
+    </a>
+  `).join('');
+
+  renderPagination();
 }
 
-document.getElementById("searchInput").addEventListener("input", function () {
-    let val = this.value.toLowerCase();
-    let filtered = allPosts.filter(p =>
-        p.title.toLowerCase().includes(val) ||
-        p.description.toLowerCase().includes(val) ||
-        p.category.toLowerCase().includes(val)
-    );
-    displayPosts(filtered);
+function renderPagination(){
+  const totalPages = Math.ceil(allPosts.length / perPage);
+  const container = document.getElementById('pagination');
+
+  let buttons = '';
+  for(let i=1;i<=totalPages;i++){
+    buttons += `<button class="${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;
+  }
+
+  container.innerHTML = buttons;
+}
+
+function goToPage(page){
+  currentPage = page;
+  renderPage();
+}
+
+// Search
+
+document.getElementById('searchInput').addEventListener('input', function(){
+  const val = this.value.toLowerCase();
+
+  const filtered = allPosts.filter(p =>
+    p.title.toLowerCase().includes(val) ||
+    p.description.toLowerCase().includes(val)
+  );
+
+  renderFeatured(filtered.slice(0,3));
+
+  const container = document.getElementById('articles');
+  container.innerHTML = filtered.map(p => `
+    <a href="${p.url}" class="article-item">
+      <img src="${p.image}">
+      <div class="article-info">
+        <h3>${p.title}</h3>
+        <p>${p.description}</p>
+      </div>
+    </a>
+  `).join('');
+
+  document.getElementById('pagination').innerHTML = '';
 });
 
-loadArticles();
-</script>
-
-</body>
+loadPosts();
+</script></body>
 </html>
