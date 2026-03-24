@@ -6,7 +6,8 @@
     "date": "2026-03-22",
     "image": "/image/llama-4-featured.jpg",
     "url": "/blog/ai-guide.html"
-  },
+  }
+,
   {
     "title": "10 Free AI Writing Tools That Bypass AI Detection in 2026",
     "description": "Discover the best free AI humanizers and rewriters in 2026 to bypass AI detection, improve readability, and create human-like blog content.",
@@ -14,7 +15,8 @@
     "date": "2026-03-24",
     "image": "/image/hannah-olinger-8eSrC43qdro-unsplash.jpg",
     "url": "/blog/ai-writing-tools-2026.html"
-  },
+  }
+,
   {
     "title": "How to Fix 'App Not Installed' Error on Android (2026 Guide)",
     "description": "Fix the 'App Not Installed' error on Android in 2026 with proven solutions. Learn how to resolve storage issues, APK conflicts, and Play Protect blocks.",
@@ -22,7 +24,8 @@
     "date": "2026-03-21",
     "image": "/image/android-fix.jpg",
     "url": "/blog/app-not-installed-fix.html"
-  },
+  }
+,
   {
     "title": "How to Create a Website for Free (2026): Top 10 Platforms Ranked",
     "description": "Learn how to create a website for free in 2026. Discover the best platforms like GitHub Pages, Medium, and Blogger for SEO, traffic, and monetization.",
@@ -30,13 +33,14 @@
     "date": "2026-03-23",
     "image": "/image/medium.png",
     "url": "/blog/free-blogging-platforms.html"
-  },
+  }
+,
   {
     "title": "Beginner Guide to $1,000/Month Passive Income Using AI Tools (2026)",
     "description": "Learn how beginners can realistically make $1,000 per month in passive income using AI tools, blogging, and ad networks in 2026.",
     "category": "Make Money Online",
     "date": "2026-03-24",
-    "image": "/image/laptop-screen-showing-digital-marketing.jpg",
+    "image": "../image/laptop-screen-showing-digital-marketing.jpg",
     "url": "/blog/passive-income-1000-month.html"
   }
 ]
