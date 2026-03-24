@@ -172,25 +172,39 @@ h2 {margin-top:40px;color:var(--dark);border-left:5px solid var(--primary);paddi
 </article>
 
 <script>
-// AUTO RELATED POSTS SYSTEM
 fetch("../index.json")
 .then(res => res.json())
 .then(posts => {
-    const container = document.getElementById("relatedPosts");
 
     const currentUrl = window.location.pathname;
 
-    const filtered = posts
-        .filter(p => p.url !== currentUrl)
-        .slice(0, 3);
+    // Get current category from page
+    const category = document.querySelector('meta[name="category"]')?.content;
 
-    filtered.forEach(post => {
+    // FILTER SAME CATEGORY
+    let related = posts.filter(p => 
+        p.url !== currentUrl &&
+        p.category === category
+    );
+
+    // If not enough → fallback to latest
+    if(related.length < 3){
+        related = posts.filter(p => p.url !== currentUrl);
+    }
+
+    // SORT NEWEST
+    related.sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+    related = related.slice(0,3);
+
+    const container = document.getElementById("relatedPosts");
+
+    related.forEach(post => {
         const card = document.createElement("div");
-        card.className = "related-card";
 
         card.innerHTML = `
             <a href="${post.url}">
-                <img src="${post.image}">
+                <img src="${post.image}" style="width:100%;border-radius:10px;">
                 <h3>${post.title}</h3>
                 <p>${post.description}</p>
             </a>
