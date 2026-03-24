@@ -1,6 +1,8 @@
 backend:
   name: git-gateway
   branch: main
+  # THIS IS THE FIX: It tells the CMS where your "Identity" lives
+  site_id: harmonious-platypus-23843b.netlify.app
 
 media_folder: "image"
 public_folder: "/image"
