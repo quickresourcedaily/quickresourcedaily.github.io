@@ -1,35 +1,37 @@
-name: Generate Index JSON
-
-on:
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Generate index.json
+- name: Generate index.json
         run: |
           echo "[" > index.json
-
           first=true
 
           for file in blog/*.html
           do
-            title=$(grep -m 1 "title:" "$file" | sed 's/title: //; s/^"//; s/"$//')
-            description=$(grep -m 1 "description:" "$file" | sed 's/description: //; s/^"//; s/"$//')
-            category=$(grep -m 1 "category:" "$file" | sed 's/category: //; s/^"//; s/"$//')
-            date=$(grep -m 1 "date:" "$file" | sed 's/date: //; s/^"//; s/"$//')
-            image=$(grep -m 1 "image:" "$file" | sed 's/image: //; s/^"//; s/"$//')
+            # 1. Try to find Title (Comment block first, then <title> tag)
+            title=$(grep -m 1 "title:" "$file" | sed 's/.*title: //; s/^"//; s/"$//' | sed 's/<\/title>//')
+            if [ -z "$title" ]; then
+              title=$(grep -oP '(?<=<title>).*?(?=</title>)' "$file" | head -1)
+            fi
+
+            # 2. Try to find Description (Comment block first, then Meta tag)
+            description=$(grep -m 1 "description:" "$file" | sed 's/.*description: //; s/^"//; s/"$//' | sed 's/".*//')
+            if [ -z "$description" ]; then
+              description=$(grep -oP '(?<=<meta name="description" content=").*?(?=")' "$file" | head -1)
+            fi
+
+            # 3. Try to find Image (Comment block first, then og:image, then first <img> tag)
+            image=$(grep -m 1 "image:" "$file" | sed 's/.*image: //; s/^"//; s/"$//' | sed 's/".*//')
+            if [ -z "$image" ]; then
+              image=$(grep -oP '(?<=<meta property="og:image" content=").*?(?=")' "$file" | head -1)
+            fi
+            if [ -z "$image" ]; then
+              image=$(grep -oP '(?<=<img src=").*?(?=")' "$file" | head -1)
+            fi
+
+            # 4. Clean up the URL
             url="/blog/$(basename "$file")"
+            
+            # 5. Get Category (Default to 'General' if missing)
+            category=$(grep -m 1 "category:" "$file" | sed 's/.*category: //; s/^"//; s/"$//' | sed 's/".*//')
+            if [ -z "$category" ]; then category="General"; fi
 
             if [ "$first" = true ]; then
               first=false
@@ -41,18 +43,9 @@ jobs:
             echo "    \"title\": \"$title\"," >> index.json
             echo "    \"description\": \"$description\"," >> index.json
             echo "    \"category\": \"$category\"," >> index.json
-            echo "    \"date\": \"$date\"," >> index.json
             echo "    \"image\": \"$image\"," >> index.json
             echo "    \"url\": \"$url\"" >> index.json
             echo "  }" >> index.json
           done
 
           echo "]" >> index.json
-
-      - name: Commit and push index.json
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
-          git add index.json
-          git commit -m "Auto update index.json" || echo "No changes"
-          git push
