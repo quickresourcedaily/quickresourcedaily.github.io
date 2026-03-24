@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: quickresourcedaily/quickresourcedaily.github.io # e.g., Ian/quickresourcedaily
+  branch: main # or master
+
+media_folder: "image" # Where images will be uploaded
+public_folder: "/image"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "blog" # Where your article .html files are
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
