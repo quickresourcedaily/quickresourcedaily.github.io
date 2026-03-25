@@ -6,241 +6,60 @@
     <script>(function(s){s.dataset.zone='10759069',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     
     <script src="https://gumroad.com/js/gumroad.js"></script>
-    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QuickResourceDaily: Your 2026 authority hub for AI side hustles, tech guides, and online financial growth.">
     <title>QuickResourceDaily | AI, Tech & Side Hustle Mastery (2026)</title>
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "QuickResourceDaily",
-      "url": "https://quickresourcedaily.github.io/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://quickresourcedaily.github.io/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #0f172a;
-            --blue: #2563eb;
-            --gold: #d4af37;
-            --gold-light: #fef9c3;
-            --green: #10b981;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --muted: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --navy: #0f172a; --blue: #2563eb; --gold: #d4af37; --gold-light: #fef9c3;
+            --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        header { background: white; border-bottom: 1px solid var(--border); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        header h1 { font-size: 1.3rem; font-weight: 800; color: var(--blue); margin: 0; }
 
-        header h1 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--navy), var(--blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-        }
-
-       .hero {
-            padding: 80px 20px;
-            text-align: center;
-            background: radial-gradient(circle at top right, #1e293b, #0f172a);
-            color: white;
-            position: relative;
-        }
-
-       .hero h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-        }
-
+       .hero { padding: 60px 20px; text-align: center; background: radial-gradient(circle at top right, #1e293b, #0f172a); color: white; }
+       .hero h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 15px; }
        .hero span { color: var(--gold); }
 
-        /* MONETIZATION WIDGETS */
-       .monetization-banner {
-            background: var(--gold-light);
-            border: 2px dashed var(--gold);
-            padding: 30px;
-            border-radius: 20px;
-            margin: 40px auto;
-            max-width: 1000px;
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
+       .search-container { max-width: 600px; margin: 0 auto; width: 100%; }
+        #searchInput { padding: 15px 25px; width: 100%; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255, 255, 255, 0.1); color: white; outline: none; box-sizing: border-box; }
 
-       .cta-button {
-            background: var(--blue);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            display: inline-block;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
+       .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
-       .cta-button:hover { background: var(--navy); transform: scale(1.05); }
+        /* TOOLS GRID (Jasper & MoMo) */
+       .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px; }
+       .tool-card { background: var(--navy); color: white; padding: 25px; border-radius: 15px; border: 1px solid var(--gold); }
+       .tool-card.light { background: white; color: var(--text); border: 2px dashed var(--blue); }
 
-       .search-container {
-            position: relative;
-            max-width: 600px;
-            margin: 0 auto;
-            width: 100%;
-        }
+        /* ARTICLE GRID */
+       .section-header { border-left: 4px solid var(--gold); padding-left: 15px; margin-bottom: 25px; font-weight: 800; font-size: 1.4rem; }
+       .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        
+       .article-card { background: white; border-radius: 15px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; }
+       .article-card:hover { transform: translateY(-5px); border-color: var(--blue); }
+       .article-card img { width: 100%; height: 180px; object-fit: cover; }
+       .article-content { padding: 20px; }
+       .article-content h3 { margin: 0 0 10px; font-size: 1.1rem; line-height: 1.4; }
+       .article-content p { font-size: 0.9rem; color: var(--muted); margin: 0; }
 
-        #searchInput {
-            padding: 18px 25px;
-            width: 100%;
-            border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: 0.3s;
-            box-sizing: border-box;
-        }
+        /* FLOATING NEWSLETTER */
+       .newsletter-toast { position: fixed; bottom: 20px; right: 20px; width: 320px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border: 2px solid var(--blue); z-index: 2000; transform: translateX(400px); transition: 0.5s ease; }
+       .newsletter-toast.show { transform: translateX(0); }
+       .newsletter-toast h4 { margin: 0 0 10px; font-weight: 800; }
+       .newsletter-toast button.close { position: absolute; top: 10px; right: 10px; background: none; border: none; cursor: pointer; font-size: 1.2rem; }
+       .cta-btn { background: var(--blue); color: white; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block; width: 100%; text-align: center; margin-top: 10px; font-size: 0.9rem; }
 
-        #searchInput:focus {
-            background: white;
-            color: var(--navy);
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
-        }
-
-       .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-
-       .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            border-left: 4px solid var(--gold);
-            padding-left: 15px;
-        }
-
-       .section-title { font-size: 1.5rem; font-weight: 800; margin: 0; }
-
-       .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-       .featured-card {
-            background: var(--card);
-            border-radius: 20px;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: var(--shadow);
-            transition: 0.3s;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-        }
-
-       .featured-card:hover { transform: translateY(-8px); border-color: var(--gold); }
-
-       .featured-card img { width: 100%; height: 220px; object-fit: cover; }
-
-       .badge {
-            background: var(--gold-light);
-            color: #856404;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-       .featured-content { padding: 25px; }
-
-       .article-list { display: grid; gap: 20px; }
-
-       .article-item {
-            display: flex;
-            gap: 20px;
-            background: white;
-            padding: 15px;
-            border-radius: 16px;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid var(--border);
-            transition: 0.2s;
-            align-items: center;
-        }
-
-       .article-item:hover { background: #f1f5f9; border-color: var(--blue); }
-
-       .article-item img {
-            width: 140px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 10px;
-            flex-shrink: 0;
-        }
-
-       .pagination { display: flex; justify-content: center; margin-top: 50px; gap: 8px; }
-
-       .pagination button {
-            padding: 10px 18px;
-            border: 1px solid var(--border);
-            background: white;
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
+       .pagination { display: flex; justify-content: center; margin-top: 40px; gap: 10px; }
+       .pagination button { padding: 8px 15px; border: 1px solid var(--border); background: white; border-radius: 5px; cursor: pointer; }
        .pagination button.active { background: var(--navy); color: white; }
 
-        @media (max-width: 768px) {
-           .article-item { flex-direction: column; align-items: flex-start; }
-           .article-item img { width: 100%; height: 180px; }
-        }
-
-       .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-       .footer-links a { color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.85rem; }
-       .footer-links a:hover { color: var(--gold); }
+        @media (max-width: 600px) {.newsletter-toast { width: 90%; left: 5%; right: 5%; } }
     </style>
 </head>
 <body>
@@ -248,51 +67,44 @@
 <header>
     <h1>QuickResourceDaily</h1>
     <nav>
-        <a href="about.html" style="text-decoration:none; color:var(--navy); font-weight:700; margin-right:15px;">About</a>
-        <a href="contact.html" style="text-decoration:none; color:var(--navy); font-weight:700;">Contact</a>
+        <a href="about.html" style="text-decoration:none; color:var(--navy); font-weight:700;">About</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>Master the <span>AI Side Hustle</span></h2>
-    <p style="margin-bottom:30px; opacity:0.9;">High-authority tech resources & digital wealth guides for 2026.</p>
+    <h2>Master the <span>Digital Economy</span></h2>
     <div class="search-container">
-        <input id="searchInput" placeholder="Search AI tools or side hustle guides...">
+        <input id="searchInput" placeholder="Search AI, Tech, or Money guides...">
     </div>
 </section>
 
 <div class="container">
-    <div class="monetization-banner">
-        <span class="badge">FREE RESOURCE</span>
-        <h3 style="font-size:1.8rem; margin:10px 0;">🚀 Join the 2026 AI Wealth Circle</h3>
-        <p>Get the latest zero-cost side hustles delivered to your MoMo-linked inbox weekly.</p>
-        <a href="https://your-newsletter.beehiiv.com/subscribe" class="cta-button">Subscribe & Get AI Prompt Pack</a>
-    </div>
-
-    <div class="section-header">
-        <h2 class="section-title">🔥 Featured Insights</h2>
-    </div>
-    <div class="featured-grid" id="featured"></div>
-
-    <div style="background:var(--navy); color:white; padding:40px; border-radius:20px; margin:40px 0; display:flex; align-items:center; flex-wrap:wrap; gap:30px;">
-        <div style="flex:1; min-width:300px;">
-            <h3 style="color:var(--gold); margin-top:0;">Top Rated AI Content Tool (2026)</h3>
-            <p>Scale your blog 10x faster with <b>Jasper AI</b>. Used by our experts to generate high-ranking AEO content.</p>
-            <a href="https://jasper.ai?special_affiliate_id" class="cta-button" style="background:var(--gold); color:var(--navy);">Try Jasper AI Risk-Free</a>
+    <div class="section-header">Premium Resources</div>
+    <div class="tools-grid">
+        <div class="tool-card">
+            <h4 style="color:var(--gold); margin-top:0;">Jasper AI (Special Offer)</h4>
+            <p style="font-size:0.85rem;">Scale your 2026 AI content production with the industry leader.</p>
+            <a href="https://jasper.ai?id=your_id" class="cta-btn" style="background:var(--gold); color:var(--navy);">Get Started Free</a>
         </div>
-        <div style="flex:1; min-width:300px; text-align:center; border:2px solid var(--gold); border-radius:15px; padding:20px;">
-            <p style="font-size:0.8rem; opacity:0.7;">ADVERTISEMENT</p>
-            <p><b>Accept Local MoMo Payments!</b><br>Sell your guides in Uganda via Flutterwave.</p>
-            <a href="https://checkout.flutterwave.com/v3/hosted/pay" class="cta-button" style="padding:10px 20px; font-size:0.9rem;">Buy Digital Tool Pack</a>
+        <div class="tool-card light">
+            <h4 style="color:var(--blue); margin-top:0;">Accept MoMo in Uganda</h4>
+            <p style="font-size:0.85rem;">Use Flutterwave to collect MTN & Airtel payments for your guides.</p>
+            <a href="https://flutterwave.com" class="cta-btn">Setup Flutterwave</a>
         </div>
     </div>
 
-    <div class="section-header">
-        <h2 class="section-title">Latest Updates</h2>
-    </div>
-    <div class="article-list" id="articles"></div>
+    <div class="section-header">Latest Insights</div>
+    <div class="article-grid" id="articles">
+        </div>
 
     <div class="pagination" id="pagination"></div>
+</div>
+
+<div class="newsletter-toast" id="newsletter">
+    <button class="close" onclick="closeNewsletter()">&times;</button>
+    <h4>🚀 2026 Wealth Circle</h4>
+    <p style="font-size:0.8rem; color:var(--muted);">Join 5,000+ creators getting AI side hustles delivered to MoMo-linked inboxes.</p>
+    <a href="https://your-newsletter.beehiiv.com/subscribe" class="cta-btn">Subscribe & Get AI Pack</a>
 </div>
 
 <script>
@@ -300,49 +112,28 @@ let allPosts =;
 const perPage = 6;
 let currentPage = 1;
 
-function fixPath(path) {
-    if(!path) return 'https://via.placeholder.com/400x250';
-    let clean = path.replace('../', '');
-    return clean.startsWith('/')? clean : '/' + clean;
-}
-
 async function loadPosts(){
     try {
         const res = await fetch('/index.json?v=' + Date.now());
-        const posts = await res.json();
-        allPosts = posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
-        renderFeatured(allPosts.slice(0, 3));
+        allPosts = await res.json();
+        allPosts.sort((a,b)=> new Date(b.date) - new Date(a.date));
         renderPage();
-    } catch (e) { console.error("Data load failed"); }
-}
-
-function renderFeatured(posts){
-    const container = document.getElementById('featured');
-    container.innerHTML = posts.map(p => `
-        <a href="${p.url}" class="featured-card">
-            <img src="${fixPath(p.image)}" alt="${p.title}" loading="lazy">
-            <div class="featured-content">
-                <span class="badge">${p.category |
-
-| 'Expert Guide'}</span>
-                <h3>${p.title}</h3>
-                <p>${p.description.substring(0, 100)}...</p>
-            </div>
-        </a>
-    `).join('');
+        setTimeout(() => { document.getElementById('newsletter').classList.add('show'); }, 3000);
+    } catch (e) { console.error("Posts failed to load."); }
 }
 
 function renderPage(){
     const start = (currentPage-1) * perPage;
     const pagePosts = allPosts.slice(start, start + perPage);
     const container = document.getElementById('articles');
+    
     container.innerHTML = pagePosts.map(p => `
-        <a href="${p.url}" class="article-item">
-            <img src="${fixPath(p.image)}" alt="${p.title}">
-            <div class="article-info">
-                <span style="color:var(--blue); font-size:0.7rem; font-weight:800; text-transform:uppercase;">${p.category}</span>
+        <a href="${p.url}" class="article-card">
+            <img src="${p.image}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/400x250'">
+            <div class="article-content">
+                <span style="font-size:0.7rem; font-weight:800; color:var(--blue); text-transform:uppercase;">${p.category}</span>
                 <h3>${p.title}</h3>
-                <p>${p.description.substring(0, 80)}...</p>
+                <p>${p.description.substring(0, 90)}...</p>
             </div>
         </a>
     `).join('');
@@ -352,59 +143,47 @@ function renderPage(){
 function renderPagination(){
     const totalPages = Math.ceil(allPosts.length / perPage);
     const container = document.getElementById('pagination');
-    if(totalPages <= 1) { container.innerHTML = ''; return; }
-    let buttons = '';
+    if(totalPages <= 1) return;
+    let btns = '';
     for(let i=1; i<=totalPages; i++){
-        buttons += `<button class="${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;
+        btns += `<button class="${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;
     }
-    container.innerHTML = buttons;
+    container.innerHTML = btns;
 }
 
 function goToPage(page){
     currentPage = page;
     renderPage();
-    window.scrollTo({top: 500, behavior: 'smooth'});
+    window.scrollTo({top: 400, behavior: 'smooth'});
 }
 
+function closeNewsletter() {
+    document.getElementById('newsletter').classList.remove('show');
+}
+
+// Search Logic
 document.getElementById('searchInput').addEventListener('input', function(){
     const val = this.value.toLowerCase();
-    const filtered = allPosts.filter(p => 
-        p.title.toLowerCase().includes(val) |
+    const filtered = allPosts.filter(p => p.title.toLowerCase().includes(val) |
 
-| 
-        p.description.toLowerCase().includes(val)
-    );
-    renderFeatured(filtered.slice(0, 3));
+| p.description.toLowerCase().includes(val));
     const container = document.getElementById('articles');
     container.innerHTML = filtered.map(p => `
-        <a href="${p.url}" class="article-item">
-            <img src="${fixPath(p.image)}">
-            <div class="article-info">
+        <a href="${p.url}" class="article-card">
+            <img src="${p.image}">
+            <div class="article-content">
                 <h3>${p.title}</h3>
                 <p>${p.description}</p>
             </div>
         </a>
     `).join('');
-    document.getElementById('pagination').innerHTML = '';
 });
 
 loadPosts();
 </script>
 
-<footer style="background:var(--navy); color:white; padding:60px 20px; text-align:center; margin-top:80px;">
-    <p style="font-weight:800; font-size:1.2rem; margin-bottom:10px;">QuickResourceDaily</p>
-    <p style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Empowering creators with AI, Tech, and Financial Freedom.</p>
-    
-    <div class="footer-links">
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Service</a>
-    </div>
-
-    <div style="margin-top:20px; font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; color:rgba(255,255,255,0.4);">
-        &copy; 2026 QuickResourceDaily. Expert Technical Insights. All rights reserved.
-    </div>
+<footer style="background:var(--navy); color:white; padding:40px 20px; text-align:center; margin-top:60px; font-size:0.8rem;">
+    <p>&copy; 2026 QuickResourceDaily. Empowering Creators with AI & Tech.</p>
 </footer>
 
 </body>
