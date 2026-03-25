@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "QuickResourceDaily",
+      "url": "https://quickresourcedaily.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://quickresourcedaily.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "description": "Expert guides on Tech, AI, and Side Hustles in 2026."
+    }
+    </script>
+
     <script>(function(s){s.dataset.zone='10780871',s.src='https://izcle.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script src="https://5gvci.com/act/files/tag.min.js?z=10779981" data-cfasync="false" async></script>
     <script>(function(s){s.dataset.zone='10759069',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
@@ -33,6 +48,7 @@
             overflow-x: hidden;
         }
 
+        /* NAVIGATION - Updated for E-E-A-T Header Links */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -54,6 +70,21 @@
             -webkit-text-fill-color: transparent;
             margin: 0;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--blue); }
 
         .hero {
             padding: 80px 20px;
@@ -244,6 +275,7 @@
         .footer-links a:hover { color: var(--gold); }
 
         @media (max-width: 768px) {
+            header { flex-direction: column; gap: 10px; padding: 15px; }
             .hero { padding: 60px 15px; }
             .hero h2 { font-size: 2.2rem; }
             .article-item { flex-direction: row; padding: 10px; }
@@ -260,6 +292,11 @@
 
 <header>
     <h1>QuickResourceDaily</h1>
+    <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
@@ -292,7 +329,6 @@ let currentPage = 1;
 
 function fixPath(path) {
     if(!path || path === "undefined") return 'https://via.placeholder.com/400x250?text=QuickResourceDaily';
-    // Remove leading slashes or ../ to prevent broken links from root
     let clean = path.replace(/^\/+/, '').replace(/^\.\.\/+/, '');
     return '/' + clean;
 }
@@ -301,9 +337,7 @@ async function loadPosts(){
     try {
         const res = await fetch('/index.json?v=' + Date.now());
         const posts = await res.json();
-        // Sort by date descending
         allPosts = posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
-        
         renderFeatured(allPosts.slice(0, 3));
         renderPage();
     } catch (e) { 
@@ -315,14 +349,13 @@ async function loadPosts(){
 function renderFeatured(posts){
     const container = document.getElementById('featured');
     if(posts.length === 0) return;
-    
     container.innerHTML = posts.map(p => `
         <a href="${p.url}" class="featured-card">
             <img src="${fixPath(p.image)}" alt="${p.title}" loading="lazy">
             <div class="featured-content">
                 <span class="badge">${p.category || 'Trending'}</span>
                 <h3>${p.title}</h3>
-                <p>${p.description ? p.description.substring(0, 100) + '...' : 'Explore our latest guide on ' + p.category}</p>
+                <p>${p.description ? p.description.substring(0, 100) + '...' : 'Explore our latest guide.'}</p>
             </div>
         </a>
     `).join('');
@@ -332,18 +365,16 @@ function renderPage(){
     const start = (currentPage-1) * perPage;
     const pagePosts = allPosts.slice(start, start + perPage);
     const container = document.getElementById('articles');
-    
     container.innerHTML = pagePosts.map(p => `
         <a href="${p.url}" class="article-item">
             <img src="${fixPath(p.image)}" alt="${p.title}">
             <div class="article-info">
                 <span style="color:var(--blue); font-size:0.7rem; font-weight:800; text-transform:uppercase; display:block; margin-bottom:4px;">${p.category}</span>
                 <h3>${p.title}</h3>
-                <p>${p.description ? p.description.substring(0, 85) + '...' : 'Click to read the full guide.'}</p>
+                <p>${p.description ? p.description.substring(0, 85) + '...' : 'Click to read more.'}</p>
             </div>
         </a>
     `).join('');
-
     renderPagination();
 }
 
@@ -351,7 +382,6 @@ function renderPagination(){
     const totalPages = Math.ceil(allPosts.length / perPage);
     const container = document.getElementById('pagination');
     if(totalPages <= 1) { container.innerHTML = ''; return; }
-
     let buttons = '';
     for(let i=1; i<=totalPages; i++){
         buttons += `<button class="${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;
@@ -372,28 +402,21 @@ document.getElementById('searchInput').addEventListener('input', function(){
         (p.description && p.description.toLowerCase().includes(val)) ||
         p.category.toLowerCase().includes(val)
     );
-
     const featSection = document.getElementById('featured-section');
     const container = document.getElementById('articles');
     const pagin = document.getElementById('pagination');
-
     if(val.length > 0) {
         featSection.style.display = 'none';
         pagin.style.display = 'none';
-        if(filtered.length === 0) {
-            container.innerHTML = "<p style='text-align:center; padding:40px;'>No results found for your search.</p>";
-        } else {
-            container.innerHTML = filtered.map(p => `
-                <a href="${p.url}" class="article-item">
-                    <img src="${fixPath(p.image)}">
-                    <div class="article-info">
-                        <span style="color:var(--blue); font-size:0.7rem; font-weight:800; text-transform:uppercase;">${p.category}</span>
-                        <h3>${p.title}</h3>
-                        <p>${p.description || ''}</p>
-                    </div>
-                </a>
-            `).join('');
-        }
+        container.innerHTML = filtered.map(p => `
+            <a href="${p.url}" class="article-item">
+                <img src="${fixPath(p.image)}">
+                <div class="article-info">
+                    <h3>${p.title}</h3>
+                    <p>${p.description || ''}</p>
+                </div>
+            </a>
+        `).join('');
     } else {
         featSection.style.display = 'block';
         pagin.style.display = 'flex';
@@ -407,14 +430,12 @@ loadPosts();
 <footer>
     <p style="font-weight:800; font-size:1.2rem; margin-bottom:10px;">QuickResourceDaily</p>
     <p style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Empowering creators with AI, Tech, and Financial Freedom.</p>
-    
     <div class="footer-links">
         <a href="/about.html">About Us</a>
         <a href="/contact.html">Contact</a>
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
     </div>
-
     <div style="margin-top:20px; font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; color:rgba(255,255,255,0.4);">
         &copy; 2026 QuickResourceDaily. All rights reserved.
     </div>
