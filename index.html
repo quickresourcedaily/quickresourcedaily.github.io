@@ -4,15 +4,35 @@
     <script>(function(s){s.dataset.zone='10780871',s.src='https://izcle.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script src="https://5gvci.com/act/files/tag.min.js?z=10779981" data-cfasync="false" async></script>
     <script>(function(s){s.dataset.zone='10759069',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickResourceDaily | Tech, AI & Side Hustles</title>
+    <meta name="description" content="QuickResourceDaily: Your 2026 authority hub for AI side hustles, tech guides, and online financial growth.">
+    <title>QuickResourceDaily | AI, Tech & Side Hustle Mastery (2026)</title>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "QuickResourceDaily",
+      "url": "https://quickresourcedaily.github.io/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://quickresourcedaily.github.io/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #0f172a;
             --blue: #2563eb;
-            --gold: #d4af37; /* Professional Gold */
+            --gold: #d4af37;
             --gold-light: #fef9c3;
             --green: #10b981;
             --bg: #f8fafc;
@@ -32,7 +52,6 @@
             overflow-x: hidden;
         }
 
-        /* NAVIGATION */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -55,8 +74,7 @@
             margin: 0;
         }
 
-        /* HERO SECTION */
-        .hero {
+       .hero {
             padding: 80px 20px;
             text-align: center;
             background: radial-gradient(circle at top right, #1e293b, #0f172a);
@@ -64,18 +82,42 @@
             position: relative;
         }
 
-        .hero h2 {
+       .hero h2 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 24px;
             letter-spacing: -0.03em;
         }
 
-        .hero span {
-            color: var(--gold);
+       .hero span { color: var(--gold); }
+
+        /* MONETIZATION WIDGETS */
+       .monetization-banner {
+            background: var(--gold-light);
+            border: 2px dashed var(--gold);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 1000px;
+            text-align: center;
+            box-shadow: var(--shadow);
         }
 
-        .search-container {
+       .cta-button {
+            background: var(--blue);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-block;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+       .cta-button:hover { background: var(--navy); transform: scale(1.05); }
+
+       .search-container {
             position: relative;
             max-width: 600px;
             margin: 0 auto;
@@ -96,22 +138,15 @@
             box-sizing: border-box;
         }
 
-        #searchInput::placeholder { color: rgba(255,255,255,0.6); }
-
         #searchInput:focus {
             background: white;
             color: var(--navy);
             box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
         }
 
-        /* CONTAINER */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+       .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
-        .section-header {
+       .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -120,21 +155,16 @@
             padding-left: 15px;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin: 0;
-        }
+       .section-title { font-size: 1.5rem; font-weight: 800; margin: 0; }
 
-        /* FEATURED GRID (Desktop & Mobile) */
-        .featured-grid {
+       .featured-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin-bottom: 50px;
         }
 
-        .featured-card {
+       .featured-card {
             background: var(--card);
             border-radius: 20px;
             overflow: hidden;
@@ -147,18 +177,11 @@
             flex-direction: column;
         }
 
-        .featured-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-        }
+       .featured-card:hover { transform: translateY(-8px); border-color: var(--gold); }
 
-        .featured-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
+       .featured-card img { width: 100%; height: 220px; object-fit: cover; }
 
-        .badge {
+       .badge {
             background: var(--gold-light);
             color: #856404;
             padding: 4px 12px;
@@ -169,14 +192,11 @@
             margin-bottom: 10px;
         }
 
-        .featured-content { padding: 25px; }
-        .featured-content h3 { margin: 0 0 10px; font-size: 1.25rem; line-height: 1.3; }
-        .featured-content p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+       .featured-content { padding: 25px; }
 
-        /* LIST VIEW */
-        .article-list { display: grid; gap: 20px; }
+       .article-list { display: grid; gap: 20px; }
 
-        .article-item {
+       .article-item {
             display: flex;
             gap: 20px;
             background: white;
@@ -189,9 +209,9 @@
             align-items: center;
         }
 
-        .article-item:hover { background: #f1f5f9; border-color: var(--blue); }
+       .article-item:hover { background: #f1f5f9; border-color: var(--blue); }
 
-        .article-item img {
+       .article-item img {
             width: 140px;
             height: 100px;
             object-fit: cover;
@@ -199,18 +219,9 @@
             flex-shrink: 0;
         }
 
-        .article-info h3 { margin: 0 0 5px; font-size: 1.1rem; }
-        .article-info p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+       .pagination { display: flex; justify-content: center; margin-top: 50px; gap: 8px; }
 
-        /* PAGINATION */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
-            gap: 8px;
-        }
-
-        .pagination button {
+       .pagination button {
             padding: 10px 18px;
             border: 1px solid var(--border);
             background: white;
@@ -220,70 +231,61 @@
             transition: 0.2s;
         }
 
-        .pagination button.active {
-            background: var(--navy);
-            color: white;
-            border-color: var(--navy);
-        }
+       .pagination button.active { background: var(--navy); color: white; }
 
-        /* MOBILE OPTIMIZATION */
         @media (max-width: 768px) {
-            .hero { padding: 60px 15px; }
-            .hero h2 { font-size: 2.2rem; }
-            
-            .article-item {
-                flex-direction: row; /* Keeping horizontal on small tablets */
-                padding: 10px;
-            }
-            
-            .article-item img {
-                width: 100px;
-                height: 80px;
-            }
-
-            @media (max-width: 500px) {
-                .article-item { flex-direction: column; align-items: flex-start; }
-                .article-item img { width: 100%; height: 180px; }
-            }
+           .article-item { flex-direction: column; align-items: flex-start; }
+           .article-item img { width: 100%; height: 180px; }
         }
-        .footer-links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
 
-.footer-links a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--gold);
-}
+       .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+       .footer-links a { color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 0.85rem; }
+       .footer-links a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
 
 <header>
     <h1>QuickResourceDaily</h1>
+    <nav>
+        <a href="about.html" style="text-decoration:none; color:var(--navy); font-weight:700; margin-right:15px;">About</a>
+        <a href="contact.html" style="text-decoration:none; color:var(--navy); font-weight:700;">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
-    <h2>Master the <span>Digital Frontier</span></h2>
+    <h2>Master the <span>AI Side Hustle</span></h2>
+    <p style="margin-bottom:30px; opacity:0.9;">High-authority tech resources & digital wealth guides for 2026.</p>
     <div class="search-container">
-        <input id="searchInput" placeholder="Search tech, AI, or money guides...">
+        <input id="searchInput" placeholder="Search AI tools or side hustle guides...">
     </div>
 </section>
 
 <div class="container">
+    <div class="monetization-banner">
+        <span class="badge">FREE RESOURCE</span>
+        <h3 style="font-size:1.8rem; margin:10px 0;">🚀 Join the 2026 AI Wealth Circle</h3>
+        <p>Get the latest zero-cost side hustles delivered to your MoMo-linked inbox weekly.</p>
+        <a href="https://your-newsletter.beehiiv.com/subscribe" class="cta-button">Subscribe & Get AI Prompt Pack</a>
+    </div>
+
     <div class="section-header">
         <h2 class="section-title">🔥 Featured Insights</h2>
     </div>
     <div class="featured-grid" id="featured"></div>
+
+    <div style="background:var(--navy); color:white; padding:40px; border-radius:20px; margin:40px 0; display:flex; align-items:center; flex-wrap:wrap; gap:30px;">
+        <div style="flex:1; min-width:300px;">
+            <h3 style="color:var(--gold); margin-top:0;">Top Rated AI Content Tool (2026)</h3>
+            <p>Scale your blog 10x faster with <b>Jasper AI</b>. Used by our experts to generate high-ranking AEO content.</p>
+            <a href="https://jasper.ai?special_affiliate_id" class="cta-button" style="background:var(--gold); color:var(--navy);">Try Jasper AI Risk-Free</a>
+        </div>
+        <div style="flex:1; min-width:300px; text-align:center; border:2px solid var(--gold); border-radius:15px; padding:20px;">
+            <p style="font-size:0.8rem; opacity:0.7;">ADVERTISEMENT</p>
+            <p><b>Accept Local MoMo Payments!</b><br>Sell your guides in Uganda via Flutterwave.</p>
+            <a href="https://checkout.flutterwave.com/v3/hosted/pay" class="cta-button" style="padding:10px 20px; font-size:0.9rem;">Buy Digital Tool Pack</a>
+        </div>
+    </div>
 
     <div class="section-header">
         <h2 class="section-title">Latest Updates</h2>
@@ -294,15 +296,14 @@
 </div>
 
 <script>
-let allPosts = [];
+let allPosts =;
 const perPage = 6;
 let currentPage = 1;
 
-// Path Helper: Ensures images work from home page
 function fixPath(path) {
     if(!path) return 'https://via.placeholder.com/400x250';
     let clean = path.replace('../', '');
-    return clean.startsWith('/') ? clean : '/' + clean;
+    return clean.startsWith('/')? clean : '/' + clean;
 }
 
 async function loadPosts(){
@@ -310,7 +311,6 @@ async function loadPosts(){
         const res = await fetch('/index.json?v=' + Date.now());
         const posts = await res.json();
         allPosts = posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
-        
         renderFeatured(allPosts.slice(0, 3));
         renderPage();
     } catch (e) { console.error("Data load failed"); }
@@ -322,7 +322,9 @@ function renderFeatured(posts){
         <a href="${p.url}" class="featured-card">
             <img src="${fixPath(p.image)}" alt="${p.title}" loading="lazy">
             <div class="featured-content">
-                <span class="badge">${p.category || 'Expert Guide'}</span>
+                <span class="badge">${p.category |
+
+| 'Expert Guide'}</span>
                 <h3>${p.title}</h3>
                 <p>${p.description.substring(0, 100)}...</p>
             </div>
@@ -334,7 +336,6 @@ function renderPage(){
     const start = (currentPage-1) * perPage;
     const pagePosts = allPosts.slice(start, start + perPage);
     const container = document.getElementById('articles');
-    
     container.innerHTML = pagePosts.map(p => `
         <a href="${p.url}" class="article-item">
             <img src="${fixPath(p.image)}" alt="${p.title}">
@@ -345,7 +346,6 @@ function renderPage(){
             </div>
         </a>
     `).join('');
-
     renderPagination();
 }
 
@@ -353,7 +353,6 @@ function renderPagination(){
     const totalPages = Math.ceil(allPosts.length / perPage);
     const container = document.getElementById('pagination');
     if(totalPages <= 1) { container.innerHTML = ''; return; }
-
     let buttons = '';
     for(let i=1; i<=totalPages; i++){
         buttons += `<button class="${i===currentPage?'active':''}" onclick="goToPage(${i})">${i}</button>`;
@@ -370,12 +369,12 @@ function goToPage(page){
 document.getElementById('searchInput').addEventListener('input', function(){
     const val = this.value.toLowerCase();
     const filtered = allPosts.filter(p => 
-        p.title.toLowerCase().includes(val) || 
+        p.title.toLowerCase().includes(val) |
+
+| 
         p.description.toLowerCase().includes(val)
     );
     renderFeatured(filtered.slice(0, 3));
-    
-    // Update main list
     const container = document.getElementById('articles');
     container.innerHTML = filtered.map(p => `
         <a href="${p.url}" class="article-item">
@@ -404,7 +403,7 @@ loadPosts();
     </div>
 
     <div style="margin-top:20px; font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; color:rgba(255,255,255,0.4);">
-        &copy; 2026 QuickResourceDaily. All rights reserved.
+        &copy; 2026 QuickResourceDaily. Expert Technical Insights. All rights reserved.
     </div>
 </footer>
 
